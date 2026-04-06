@@ -1,17 +1,22 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import pickupSmallImg from "@/assets/pickup-small.jpg";
 import pickupImg from "@/assets/pickup-truck.jpg";
-import mediumImg from "@/assets/medium-truck.jpg";
+import truck709Img from "@/assets/truck-709.jpg";
 import containerImg from "@/assets/container-truck.jpg";
 import jcbImg from "@/assets/jcb-vehicle.jpg";
+import trailerImg from "@/assets/trailer-truck.jpg";
+import mediumImg from "@/assets/medium-truck.jpg";
 
 const vehicles = [
-  { name: "Pick Up / Tata 407", desc: "Ideal for small loads and local deliveries. Perfect for MIDC area movements.", image: pickupImg, capacity: "1-3 Ton" },
-  { name: "709 / 909 / 1109", desc: "Medium duty trucks for intercity transportation. Reliable for regular scheduled routes.", image: mediumImg, capacity: "4-9 Ton" },
+  { name: "Pick Up", desc: "Compact pickup for small loads and quick local deliveries within city limits.", image: pickupSmallImg, capacity: "0.5-1 Ton" },
+  { name: "Tata 407", desc: "Ideal for small to medium loads and local MIDC area movements.", image: pickupImg, capacity: "2-3 Ton" },
+  { name: "709 / 909", desc: "Medium duty trucks for intercity transportation and regular scheduled routes.", image: truck709Img, capacity: "4-7 Ton" },
+  { name: "1109", desc: "Heavy medium truck for larger intercity cargo across Maharashtra.", image: mediumImg, capacity: "7-9 Ton" },
   { name: "20ft Container", desc: "Containerized cargo transport for secure and weather-protected shipments.", image: containerImg, capacity: "7-10 Ton" },
   { name: "JCB & Heavy Equipment", desc: "Construction and heavy equipment on rent for industrial and infrastructure projects.", image: jcbImg, capacity: "Heavy Duty" },
-  { name: "40ft Trailer", desc: "Large capacity trailers for bulk cargo and oversized shipments across states.", image: containerImg, capacity: "20-25 Ton" },
+  { name: "40ft Trailer", desc: "Large capacity trailers for bulk cargo and oversized shipments across states.", image: trailerImg, capacity: "20-25 Ton" },
 ];
 
 const fadeUp = {
