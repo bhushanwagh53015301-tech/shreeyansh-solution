@@ -21,7 +21,7 @@ const Footer = () => (
         <div>
           <h4 className="font-heading font-bold text-lg mb-4">Quick Links</h4>
           <div className="flex flex-col gap-2">
-            {["Home", "About", "Services", "Fleet", "Contact"].map((link) => (
+            {["Home", "About", "Services", "Contact"].map((link) => (
               <Link
                 key={link}
                 to={link === "Home" ? "/" : `/${link.toLowerCase()}`}
@@ -43,6 +43,10 @@ const Footer = () => (
             <a href="tel:9273234588" className="flex items-center gap-2 hover:text-secondary transition-colors">
               <Phone className="h-4 w-4 text-secondary" />
               9273234588
+            </a>
+            <a href="mailto:shreeyanshlogitechsolutions@gmail.com" className="flex items-center gap-2 hover:text-secondary transition-colors break-all">
+              <Mail className="h-4 w-4 text-secondary" />
+              shreeyanshlogitechsolutions@gmail.com
             </a>
           </div>
         </div>

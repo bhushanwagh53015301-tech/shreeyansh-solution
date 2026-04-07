@@ -1,0 +1,43 @@
+{
+  "id": "/",
+  "name": "Shreeyansh Logitech Solutions",
+  "short_name": "Shreeyansh",
+  "description": "Full truck load transportation and truck rental services in Maharashtra, Goa, and Gujarat.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f6fa",
+  "theme_color": "#2f3f8f",
+  "lang": "en-IN",
+  "categories": [
+    "business",
+    "transportation",
+    "logistics"
+  ],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/placeholder.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "url": "/contact"
+    },
+    {
+      "name": "Services",
+      "short_name": "Services",
+      "url": "/services"
+    }
+  ]
+}
