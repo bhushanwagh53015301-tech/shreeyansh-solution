@@ -11,13 +11,26 @@ const VehicleDetails = () => {
 
   useEffect(() => {
     if (!vehicle) {
-      setPageSeo("Vehicle Not Found | Shreeyansh Logitech Solutions", "Requested fleet vehicle page was not found.");
+      setPageSeo("Vehicle Not Found | Shreeyansh Logitech Solutions", "Requested fleet vehicle page was not found.", {
+        robots: "noindex, nofollow",
+      });
       return;
     }
 
     setPageSeo(
       `${vehicle.name} on Rent in Pune | ${vehicle.capacity} Capacity`,
-      `${vehicle.name} available for truck rental and full truck load movement across Maharashtra, Goa, and Gujarat.`
+      `${vehicle.name} available for truck rental and full truck load movement across Maharashtra, Goa, and Gujarat.`,
+      {
+        canonicalPath: `/vehicles/${vehicle.slug}`,
+        structuredData: {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          name: `${vehicle.name} Truck Rental`,
+          description: vehicle.desc,
+          brand: "Shreeyansh Logitech Solutions",
+          category: "Truck Rental Service",
+        },
+      }
     );
   }, [vehicle]);
 

@@ -21,22 +21,59 @@ const upsertLinkTag = (selector: string, attributes: Record<string, string>) => 
   Object.entries(attributes).forEach(([key, value]) => tag?.setAttribute(key, value));
 };
 
-export const setPageSeo = (title: string, description: string) => {
-  const canonicalUrl = window.location.href;
-  const ogImage = "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/515401da-b2d8-4fc4-bb3b-89af28bdc8d0/id-preview-b64109c9--19fa6649-13eb-4042-a5bd-1007089e1fd9.lovable.app-1775476526495.png";
+type SeoOptions = {
+  robots?: string;
+  canonicalPath?: string;
+  ogType?: "website" | "article";
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+};
+
+const upsertStructuredData = (data?: SeoOptions["structuredData"]) => {
+  const selector = 'script[data-seo="structured-data"]';
+  const existing = document.head.querySelector<HTMLScriptElement>(selector);
+
+  if (!data) {
+    existing?.remove();
+    return;
+  }
+
+  const script = existing ?? document.createElement("script");
+  script.type = "application/ld+json";
+  script.setAttribute("data-seo", "structured-data");
+  script.textContent = JSON.stringify(data);
+
+  if (!existing) {
+    document.head.appendChild(script);
+  }
+};
+
+const getSiteUrl = () => {
+  const envUrl = import.meta.env.VITE_SITE_URL as string | undefined;
+  return (envUrl?.replace(/\/$/, "") || window.location.origin);
+};
+
+export const setPageSeo = (title: string, description: string, options: SeoOptions = {}) => {
+  const siteUrl = getSiteUrl();
+  const canonicalUrl = options.canonicalPath ? `${siteUrl}${options.canonicalPath}` : window.location.href;
+  const ogImage = `${siteUrl}/favicon.ico`;
+  const robots = options.robots ?? "index, follow";
+  const ogType = options.ogType ?? "website";
 
   document.title = title;
 
   upsertMetaTag('meta[name="description"]', { name: "description" }, description);
-  upsertMetaTag('meta[name="robots"]', { name: "robots" }, "index, follow");
-  upsertMetaTag('meta[property="og:type"]', { property: "og:type" }, "website");
+  upsertMetaTag('meta[name="robots"]', { name: "robots" }, robots);
+  upsertMetaTag('meta[property="og:type"]', { property: "og:type" }, ogType);
   upsertMetaTag('meta[property="og:url"]', { property: "og:url" }, canonicalUrl);
+  upsertMetaTag('meta[property="og:site_name"]', { property: "og:site_name" }, "Shreeyansh Logitech Solutions");
   upsertMetaTag('meta[property="og:title"]', { property: "og:title" }, title);
   upsertMetaTag('meta[property="og:description"]', { property: "og:description" }, description);
   upsertMetaTag('meta[property="og:image"]', { property: "og:image" }, ogImage);
   upsertMetaTag('meta[name="twitter:card"]', { name: "twitter:card" }, "summary_large_image");
+  upsertMetaTag('meta[name="twitter:site"]', { name: "twitter:site" }, "@shreeyanshlogitech");
   upsertMetaTag('meta[name="twitter:title"]', { name: "twitter:title" }, title);
   upsertMetaTag('meta[name="twitter:description"]', { name: "twitter:description" }, description);
   upsertMetaTag('meta[name="twitter:image"]', { name: "twitter:image" }, ogImage);
   upsertLinkTag('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
+  upsertStructuredData(options.structuredData);
 };

@@ -1,10 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { setPageSeo } from "@/lib/seo";
 
 const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
+    setPageSeo("404 Page Not Found | Shreeyansh Logitech Solutions", "The requested page could not be found.", {
+      robots: "noindex, nofollow",
+    });
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 

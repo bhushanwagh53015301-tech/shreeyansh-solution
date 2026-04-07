@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, Mail, CircleHelp } from "lucide-react";
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useEffect } from "react";
+import { setPageSeo } from "@/lib/seo";
 
 const CONTACT_EMAIL = "shreeyanshlogitechsolutions@gmail.com";
 
@@ -32,6 +33,22 @@ const Contact = () => {
   const [vehicleType, setVehicleType] = useState("");
   const [cargoRouteDetails, setCargoRouteDetails] = useState("");
 
+  useEffect(() => {
+    setPageSeo(
+      "Contact Shreeyansh Logitech Solutions | Truck Booking & Quote",
+      "Contact Shreeyansh Logitech Solutions for truck rental quotes, FTL booking support, and route assistance across Maharashtra, Goa, and Gujarat.",
+      {
+        canonicalPath: "/contact",
+        structuredData: {
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          name: "Contact Shreeyansh Logitech Solutions",
+          url: `${window.location.origin}/contact`,
+        },
+      }
+    );
+  }, []);
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
@@ -62,7 +79,6 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
         </div>
       </section>
 
-      {/* Booking Steps */}
       <section className="py-14 md:py-20 bg-section-light">
         <div className="container">
           <motion.div
@@ -98,7 +114,6 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
 
       <section className="py-14 md:py-20">
         <div className="container grid md:grid-cols-2 gap-8 md:gap-12">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -114,9 +129,12 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
                 <div>
                   <h4 className="font-heading font-bold text-primary mb-1">Office Address</h4>
                   <p className="text-muted-foreground text-sm">
-                    Shreeyansh Logitech Solutions<br />
-                    SWARAJYA Residency, Shop No. 1,<br />
-                    Chakan Road, Chakan MIDC Phase-5,<br />
+                    Shreeyansh Logitech Solutions
+                    <br />
+                    SWARAJYA Residency, Shop No. 1,
+                    <br />
+                    Chakan Road, Chakan MIDC Phase-5,
+                    <br />
                     Biradawadi, Pune-401501
                   </p>
                 </div>
@@ -154,7 +172,6 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
               </div>
             </div>
 
-            {/* Map */}
             <div className="mt-8 rounded-xl overflow-hidden shadow-md">
               <iframe
                 title="Office Location"
@@ -168,7 +185,6 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
             </div>
           </motion.div>
 
-          {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -179,7 +195,7 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
               <h2 className="font-heading text-2xl font-black text-primary mb-6">Send us a Message</h2>
               {submitted ? (
                 <div className="text-center py-12">
-                  <div className="text-5xl mb-4">✅</div>
+                  <div className="text-5xl mb-4">OK</div>
                   <h3 className="font-heading text-xl font-bold text-primary mb-2">Thank You!</h3>
                   <p className="text-muted-foreground">We'll get back to you shortly.</p>
                 </div>
@@ -246,7 +262,6 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
         </div>
       </section>
 
-      {/* CTA */}
       <section className="py-10 bg-card">
         <div className="container">
           <div className="rounded-2xl bg-hero-gradient p-6 md:p-8 text-center">
@@ -276,7 +291,6 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
         </div>
       </section>
 
-      {/* Contact FAQ */}
       <section className="py-14 md:py-20 bg-card">
         <div className="container">
           <motion.div

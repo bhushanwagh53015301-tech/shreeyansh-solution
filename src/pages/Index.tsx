@@ -99,7 +99,25 @@ const Index = () => {
   useEffect(() => {
     setPageSeo(
       "Truck Rental in Pune | FTL Transport in Maharashtra, Goa, Gujarat",
-      "Shreeyansh Logitech Solutions offers full truck load transportation from Pune across Maharashtra, Goa, and Gujarat with all major truck types."
+      "Shreeyansh Logitech Solutions offers full truck load transportation from Pune across Maharashtra, Goa, and Gujarat with all major truck types.",
+      {
+        canonicalPath: "/",
+        structuredData: {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          name: "Shreeyansh Logitech Solutions",
+          url: window.location.origin,
+          areaServed: ["Maharashtra", "Goa", "Gujarat"],
+          telephone: "+91-9273234588",
+          email: "shreeyanshlogitechsolutions@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Pune",
+            addressRegion: "Maharashtra",
+            addressCountry: "IN",
+          },
+        },
+      }
     );
   }, []);
 
