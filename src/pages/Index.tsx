@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Phone, BadgeCheck, Headset, Route, Star } from "lucide-react";
 import heroImg from "@/assets/hero-trucks.jpg";
 import fleetImg from "@/assets/fleet-trucks.jpg";
+import containerTruckImg from "@/assets/container-truck.jpg";
 import { vehicles } from "@/data/vehicles";
 import { setPageSeo } from "@/lib/seo";
 
@@ -79,12 +80,19 @@ const faqs = [
   },
 ];
 
+const heroBanners = [
+  { image: heroImg, alt: "Truck fleet on highway" },
+  { image: fleetImg, alt: "Logistics fleet yard" },
+  { image: containerTruckImg, alt: "Container truck transport" },
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.6 } }),
 };
 
 const Index = () => {
+  const [heroIndex, setHeroIndex] = useState(0);
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [blogIndex, setBlogIndex] = useState(0);
 
@@ -93,6 +101,14 @@ const Index = () => {
       "Truck Rental in Pune | FTL Transport in Maharashtra, Goa, Gujarat",
       "Shreeyansh Logitech Solutions offers full truck load transportation from Pune across Maharashtra, Goa, and Gujarat with all major truck types."
     );
+  }, []);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setHeroIndex((prev) => (prev + 1) % heroBanners.length);
+    }, 4000);
+
+    return () => window.clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -116,7 +132,16 @@ const Index = () => {
       {/* Hero */}
       <section className="relative min-h-[78vh] md:min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroImg} alt="Truck fleet on highway" className="w-full h-full object-cover" width={1920} height={1080} />
+          {heroBanners.map((banner, i) => (
+            <img
+              key={banner.alt}
+              src={banner.image}
+              alt={banner.alt}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === heroIndex ? "opacity-100" : "opacity-0"}`}
+              width={1920}
+              height={1080}
+            />
+          ))}
           <div className="absolute inset-0 bg-hero-gradient opacity-80" />
         </div>
         <div className="container relative z-10 py-20 md:py-32">
@@ -144,6 +169,17 @@ const Index = () => {
               >
                 <Phone className="h-4 w-4" /> Call Now
               </a>
+            </div>
+            <div className="flex items-center gap-2 mt-6">
+              {heroBanners.map((banner, i) => (
+                <button
+                  key={banner.alt}
+                  type="button"
+                  aria-label={`Show banner ${i + 1}`}
+                  onClick={() => setHeroIndex(i)}
+                  className={`h-2.5 rounded-full transition-all ${i === heroIndex ? "w-7 bg-secondary" : "w-2.5 bg-primary-foreground/55"}`}
+                />
+              ))}
             </div>
           </motion.div>
         </div>
