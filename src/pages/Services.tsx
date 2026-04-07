@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Truck, MapPin, Package, ArrowRight, CheckCircle, Factory, ShoppingBag, Building2, Wrench, CircleHelp } from "lucide-react";
+import { Truck, MapPin, Package, ArrowRight, CheckCircle } from "lucide-react";
 import fleetImg from "@/assets/fleet-trucks.jpg";
 
 const services = [
