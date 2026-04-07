@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Truck, MapPin, Package, ArrowRight, CheckCircle } from "lucide-react";
 import fleetImg from "@/assets/fleet-trucks.jpg";
 import { setPageSeo } from "@/lib/seo";
+import { vehicles } from "@/data/vehicles";
 
 const services = [
   {
@@ -118,6 +119,47 @@ const Services = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-20 bg-card">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+              Vehicles Available <span className="text-secondary">On Rent</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {vehicles.map((v, i) => (
+              <motion.div
+                key={v.slug}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group"
+              >
+                <Link to={`/vehicles/${v.slug}`} className="block">
+                  <div className="overflow-hidden h-48 md:h-52">
+                    <img src={v.image} alt={v.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width={800} height={600} />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <h3 className="font-heading font-bold text-base md:text-lg text-primary">{v.shortName}</h3>
+                      <span className="text-xs font-heading font-bold bg-secondary/10 text-secondary px-3 py-1 rounded-full">{v.capacity}</span>
+                    </div>
+                    <p className="text-muted-foreground text-sm mb-4">{v.desc}</p>
+                    <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold">
+                      View Details <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
           <div className="text-center mt-12">
             <Link
               to="/contact"

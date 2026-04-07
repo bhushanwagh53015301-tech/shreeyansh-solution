@@ -9,10 +9,10 @@ import { vehicles } from "@/data/vehicles";
 import { setPageSeo } from "@/lib/seo";
 
 const stats = [
-  { number: "100+", label: "Vehicles" },
-  { number: "18+", label: "Years Experience" },
-  { number: "3", label: "States Covered" },
-  { number: "500+", label: "Happy Clients" },
+  { value: 100, suffix: "+", label: "Vehicles" },
+  { value: 18, suffix: "+", label: "Years Experience" },
+  { value: 3, suffix: "", label: "States Covered" },
+  { value: 500, suffix: "+", label: "Happy Clients" },
 ];
 
 const whyChooseUs = [
@@ -89,6 +89,37 @@ const heroBanners = [
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.6 } }),
+};
+
+const AnimatedStat = ({ value, suffix }: { value: number; suffix: string }) => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const duration = 1400;
+    const start = performance.now();
+    let frame = 0;
+
+    const update = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      setCount(Math.floor(progress * value));
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(update);
+      } else {
+        setCount(value);
+      }
+    };
+
+    frame = requestAnimationFrame(update);
+    return () => cancelAnimationFrame(frame);
+  }, [value]);
+
+  return (
+    <span>
+      {count}
+      {suffix}
+    </span>
+  );
 };
 
 const Index = () => {
@@ -221,7 +252,9 @@ const Index = () => {
           <div className="bg-card rounded-2xl shadow-xl p-5 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, i) => (
               <motion.div key={stat.label} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} className="text-center">
-                <div className="font-heading text-3xl md:text-4xl font-black text-secondary">{stat.number}</div>
+                <div className="font-heading text-3xl md:text-4xl font-black text-secondary">
+                  <AnimatedStat value={stat.value} suffix={stat.suffix} />
+                </div>
                 <div className="text-muted-foreground text-sm font-semibold mt-1">{stat.label}</div>
               </motion.div>
             ))}
