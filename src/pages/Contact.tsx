@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, MapPin, Clock, Mail } from "lucide-react";
+import { Phone, MapPin, Clock, Mail, CircleHelp } from "lucide-react";
 import { useState, FormEvent } from "react";
 
 const CONTACT_EMAIL = "shreeyanshlogitechsolutions@gmail.com";
