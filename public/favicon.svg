@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Shreeyansh truck favicon">
+  <rect width="64" height="64" rx="14" fill="#1f3a8a" />
+  <path d="M10 38h30v8H10z" fill="#ff5a0f" />
+  <path d="M28 24h12v14H28zM40 28h9l5 6v4H40z" fill="#ffffff" />
+  <circle cx="20" cy="48" r="5" fill="#ffffff" />
+  <circle cx="20" cy="48" r="2" fill="#1f3a8a" />
+  <circle cx="44" cy="48" r="5" fill="#ffffff" />
+  <circle cx="44" cy="48" r="2" fill="#1f3a8a" />
+</svg>
