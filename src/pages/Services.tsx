@@ -1,8 +1,12 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Truck, MapPin, Package, ArrowRight, CheckCircle } from "lucide-react";
-import fleetImg from "@/assets/fleet-trucks.jpg";
+import { Truck, MapPin, Package, ArrowRight, CheckCircle, Globe2 } from "lucide-react";
+import fleetImg from "@/assets/vehicals/tata-flatbed-trailer-truck-heavy-cargo-transport-construction-site.png";
+import highlightImg from "@/assets/coverage-map.svg";
+import specDefImg from "@/assets/def-material.jpeg";
+import specBucketImg from "@/assets/color-buckets.jpeg";
+import specPaintBagImg from "@/assets/paint-bag.jpeg";
 import { setPageSeo } from "@/lib/seo";
 import { vehicles } from "@/data/vehicles";
 
@@ -70,6 +74,103 @@ const Services = () => {
         </div>
       </section>
 
+      <section className="py-8 bg-card">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-6 md:mb-8">
+            <p className="font-heading text-sm font-black tracking-widest text-secondary mb-2 text-center">SPECIALIZED MATERIAL TRANSPORT</p>
+            <h2 className="font-heading text-2xl md:text-3xl font-black text-primary text-center">Material Handling Expertise</h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+            {[
+              {
+                title: "TATA DEF Materials",
+                desc: "All Maharashtra and Goa line transportation specialist.",
+                image: specDefImg,
+                imageClassName: "object-cover object-[50%_24%] scale-[1.26]",
+              },
+              {
+                title: "Color Buckets",
+                desc: "Color buckets transportation specialist.",
+                image: specBucketImg,
+                imageClassName: "object-cover object-center scale-[1.08]",
+              },
+              {
+                title: "Paint Bags",
+                desc: "Paint bag transportation specialist.",
+                image: specPaintBagImg,
+                imageClassName: "object-cover object-[50%_84%] scale-[1.3]",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                className="overflow-hidden rounded-2xl border border-secondary/30 bg-secondary/10"
+              >
+                <div className="h-56 overflow-hidden bg-white">
+                  <img src={item.image} alt={item.title} className={`h-full w-full ${item.imageClassName}`} loading="lazy" />
+                </div>
+                <div className="p-6 md:p-7">
+                  <h3 className="font-heading text-xl font-black text-primary mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground font-semibold text-sm">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-10 md:py-12 bg-card">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="relative overflow-hidden rounded-3xl border border-secondary/20 bg-primary text-primary-foreground shadow-2xl"
+          >
+            <img
+              src={highlightImg}
+              alt="Service coverage map for Maharashtra Goa and Gujarat"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              width={1600}
+              height={700}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/82 to-primary/55" />
+            <div className="absolute -left-12 -top-12 h-40 w-40 rounded-full bg-secondary/30 blur-3xl" />
+            <div className="absolute -right-16 -bottom-16 h-52 w-52 rounded-full bg-secondary/20 blur-3xl" />
+
+            <div className="relative px-6 py-8 md:px-10 md:py-12">
+              <div>
+                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary-foreground/30 bg-primary-foreground/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest">
+                  <Globe2 className="h-3.5 w-3.5 text-secondary" />
+                  Service Coverage
+                </p>
+                <h2 className="font-heading text-2xl font-black leading-tight md:text-4xl">
+                  We Provide <span className="text-secondary">All Types of Full Truck Vehicles</span> in
+                  <span className="text-secondary"> Maharashtra, Goa and Gujarat</span> (Selected Areas).
+                </h2>
+                <p className="mt-4 max-w-xl text-sm text-primary-foreground/85 md:text-base">
+                  Dedicated vehicles, trusted coordination, and practical route support for industrial and commercial cargo movement.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-2.5">
+                  {["Maharashtra", "Goa", "Gujarat (Some Areas)"].map((area) => (
+                    <span key={area} className="rounded-full bg-secondary px-4 py-1.5 text-xs font-bold text-secondary-foreground md:text-sm">
+                      {area}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-20">
         <div className="container grid md:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
@@ -90,6 +191,68 @@ const Services = () => {
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <img src={fleetImg} alt="Fleet" className="rounded-2xl shadow-xl w-full" loading="lazy" width={1200} height={600} />
           </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-20 bg-card">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+              Vehicles Available <span className="text-secondary">On Rent</span>
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {vehicles.map((v, i) => (
+              <motion.div
+                key={v.slug}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group"
+              >
+                <Link to={`/vehicles/${v.slug}`} className="block">
+                  <div className="overflow-hidden h-48 md:h-52">
+                    <img
+                      src={v.image}
+                      alt={v.name}
+                      className={`w-full h-full transition-transform duration-500 ${v.imageClassName ?? "object-cover group-hover:scale-105"}`}
+                      loading="lazy"
+                      width={800}
+                      height={600}
+                      onError={(event) => {
+                        if (!v.fallbackImage) return;
+                        const target = event.currentTarget;
+                        if (target.src.endsWith(v.fallbackImage)) return;
+                        target.src = v.fallbackImage;
+                      }}
+                    />
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between gap-2 mb-3">
+                      <h3 className="font-heading font-bold text-base md:text-lg text-primary">{v.shortName}</h3>
+                      <span className="text-xs font-heading font-bold bg-secondary/10 text-secondary px-3 py-1 rounded-full">{v.capacity}</span>
+                    </div>
+                    <p className="text-muted-foreground text-sm mb-4">{v.desc}</p>
+                    <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold">
+                      View Details <ArrowRight className="h-4 w-4" />
+                    </span>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity"
+            >
+              Request a Quote <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -118,55 +281,6 @@ const Services = () => {
                 </ul>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-14 md:py-20 bg-card">
-        <div className="container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
-              Vehicles Available <span className="text-secondary">On Rent</span>
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {vehicles.map((v, i) => (
-              <motion.div
-                key={v.slug}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
-                className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group"
-              >
-                <Link to={`/vehicles/${v.slug}`} className="block">
-                  <div className="overflow-hidden h-48 md:h-52">
-                    <img src={v.image} alt={v.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width={800} height={600} />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <h3 className="font-heading font-bold text-base md:text-lg text-primary">{v.shortName}</h3>
-                      <span className="text-xs font-heading font-bold bg-secondary/10 text-secondary px-3 py-1 rounded-full">{v.capacity}</span>
-                    </div>
-                    <p className="text-muted-foreground text-sm mb-4">{v.desc}</p>
-                    <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold">
-                      View Details <ArrowRight className="h-4 w-4" />
-                    </span>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-8 py-4 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity"
-            >
-              Request a Quote <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>

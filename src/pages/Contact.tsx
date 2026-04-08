@@ -129,13 +129,13 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
                 <div>
                   <h4 className="font-heading font-bold text-primary mb-1">Office Address</h4>
                   <p className="text-muted-foreground text-sm">
-                    Shreeyansh Logitech Solutions
+                    SHREEYANSH LOGITECH SOLUTIONS
                     <br />
-                    SWARAJYA Residency, Shop No. 1,
+                    Swarajya Residency, Shop No. 1,
                     <br />
-                    Chakan Road, Chakan MIDC Phase-5,
+                    Chakan MIDC Phase-V, Biradawadi,
                     <br />
-                    Biradawadi, Pune-401501
+                    Taluka-Khed, Dist-Pune, Pin-401501
                   </p>
                 </div>
               </div>
@@ -145,9 +145,14 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
                 </div>
                 <div>
                   <h4 className="font-heading font-bold text-primary mb-1">Phone</h4>
-                  <a href="tel:9273234588" className="text-muted-foreground text-sm hover:text-secondary transition-colors">
-                    +91 9273234588
-                  </a>
+                  <div className="flex flex-col">
+                    <a href="tel:9273234588" className="text-muted-foreground text-sm hover:text-secondary transition-colors">
+                      +91 9273234588
+                    </a>
+                    <a href="tel:7744897661" className="text-muted-foreground text-sm hover:text-secondary transition-colors">
+                      +91 7744897661
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -276,7 +281,7 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
                 href="tel:9273234588"
                 className="bg-secondary text-secondary-foreground px-7 py-3.5 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity"
               >
-                Call: 9273234588
+                Call: 9273234588 / 7744897661
               </a>
               <a
                 href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20need%20truck%20booking%20support."

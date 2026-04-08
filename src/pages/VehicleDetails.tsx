@@ -70,9 +70,15 @@ const VehicleDetails = () => {
             <img
               src={vehicle.image}
               alt={vehicle.name}
-              className="w-full rounded-2xl shadow-xl object-cover"
+              className={`w-full rounded-2xl shadow-xl ${vehicle.detailImageClassName ?? "object-cover"}`}
               width={1200}
               height={700}
+              onError={(event) => {
+                if (!vehicle.fallbackImage) return;
+                const target = event.currentTarget;
+                if (target.src.endsWith(vehicle.fallbackImage)) return;
+                target.src = vehicle.fallbackImage;
+              }}
             />
           </motion.div>
 
@@ -127,7 +133,7 @@ const VehicleDetails = () => {
                 href="tel:9273234588"
                 className="inline-flex items-center justify-center gap-2 border border-border px-7 py-3.5 rounded-lg font-heading font-bold text-sm text-primary"
               >
-                <MapPin className="h-4 w-4" /> Call: 9273234588
+                <MapPin className="h-4 w-4" /> Call: 9273234588 / 7744897661
               </a>
             </div>
           </motion.div>

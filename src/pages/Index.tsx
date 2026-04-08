@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Phone, BadgeCheck, Headset, Route, Star } from "lucide-react";
-import heroImg from "@/assets/hero-trucks.jpg";
-import fleetImg from "@/assets/fleet-trucks.jpg";
-import containerTruckImg from "@/assets/container-truck.jpg";
+import heroImg from "@/assets/vehicals/tata-cargo-truck-commercial-transport-logistics-india.png";
+import fleetImg from "@/assets/vehicals/tata-flatbed-trailer-truck-heavy-cargo-transport-construction-site.png";
+import containerTruckImg from "@/assets/vehicals/tractor-transport-flatbed-truck-india-heavy-equipment-logistic.png";
 import { vehicles } from "@/data/vehicles";
 import { setPageSeo } from "@/lib/seo";
 
@@ -139,12 +139,14 @@ const Index = () => {
           name: "Shreeyansh Logitech Solutions",
           url: window.location.origin,
           areaServed: ["Maharashtra", "Goa", "Gujarat"],
-          telephone: "+91-9273234588",
+          telephone: ["+91-9273234588", "+91-7744897661"],
           email: "shreeyanshlogitechsolutions@gmail.com",
           address: {
             "@type": "PostalAddress",
-            addressLocality: "Pune",
+            streetAddress: "Swarajya Residency, Shop No. 1, Chakan MIDC Phase-V, Biradawadi",
+            addressLocality: "Taluka-Khed",
             addressRegion: "Maharashtra",
+            postalCode: "401501",
             addressCountry: "IN",
           },
         },
@@ -324,7 +326,20 @@ const Index = () => {
               >
                 <Link to={`/vehicles/${v.slug}`} className="block">
                   <div className="overflow-hidden h-48 md:h-52">
-                    <img src={v.image} alt={v.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" width={800} height={600} />
+                    <img
+                      src={v.image}
+                      alt={v.name}
+                      className={`w-full h-full transition-transform duration-500 ${v.imageClassName ?? "object-cover group-hover:scale-105"}`}
+                      loading="lazy"
+                      width={800}
+                      height={600}
+                      onError={(event) => {
+                        if (!v.fallbackImage) return;
+                        const target = event.currentTarget;
+                        if (target.src.endsWith(v.fallbackImage)) return;
+                        target.src = v.fallbackImage;
+                      }}
+                    />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between gap-2 mb-3">
@@ -487,7 +502,7 @@ const Index = () => {
                 Get Instant Quote
               </Link>
               <a href="tel:9273234588" className="border-2 border-primary-foreground/35 text-primary-foreground px-6 md:px-8 py-3.5 rounded-lg font-heading font-bold text-sm hover:bg-primary-foreground/10 transition-colors">
-                Call: 9273234588
+                Call: 9273234588 / 7744897661
               </a>
             </div>
           </div>

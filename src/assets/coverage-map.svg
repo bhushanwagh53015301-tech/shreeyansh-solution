@@ -1,0 +1,61 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B2433"/>
+      <stop offset="1" stop-color="#123B4E"/>
+    </linearGradient>
+    <linearGradient id="route" x1="400" y1="650" x2="1160" y2="240" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <g opacity="0.16" stroke="#9CC4D8" stroke-width="1">
+    <path d="M0 100H1600"/>
+    <path d="M0 200H1600"/>
+    <path d="M0 300H1600"/>
+    <path d="M0 400H1600"/>
+    <path d="M0 500H1600"/>
+    <path d="M0 600H1600"/>
+    <path d="M0 700H1600"/>
+    <path d="M0 800H1600"/>
+    <path d="M200 0V900"/>
+    <path d="M400 0V900"/>
+    <path d="M600 0V900"/>
+    <path d="M800 0V900"/>
+    <path d="M1000 0V900"/>
+    <path d="M1200 0V900"/>
+    <path d="M1400 0V900"/>
+  </g>
+
+  <g opacity="0.2" stroke="#7FB2CC" stroke-width="2">
+    <path d="M220 770C380 640 480 640 620 540C760 440 860 420 980 330C1080 255 1170 215 1370 165"/>
+    <path d="M120 650C280 560 420 500 560 430C710 355 860 320 1010 230C1120 165 1270 145 1490 100"/>
+  </g>
+
+  <path d="M430 640C560 540 710 505 830 420C955 330 1035 295 1150 235" stroke="url(#route)" stroke-width="10" stroke-linecap="round" opacity="0.95"/>
+
+  <g>
+    <circle cx="760" cy="460" r="16" fill="#F59E0B"/>
+    <circle cx="760" cy="460" r="34" fill="#F59E0B" fill-opacity="0.2"/>
+    <text x="790" y="468" fill="#F8FAFC" font-size="28" font-family="Arial, sans-serif" font-weight="700">Maharashtra</text>
+  </g>
+
+  <g>
+    <circle cx="680" cy="560" r="14" fill="#FB923C"/>
+    <circle cx="680" cy="560" r="30" fill="#FB923C" fill-opacity="0.22"/>
+    <text x="707" y="568" fill="#F8FAFC" font-size="24" font-family="Arial, sans-serif" font-weight="700">Goa</text>
+  </g>
+
+  <g>
+    <circle cx="1040" cy="310" r="14" fill="#FCD34D"/>
+    <circle cx="1040" cy="310" r="30" fill="#FCD34D" fill-opacity="0.24"/>
+    <text x="1068" y="318" fill="#F8FAFC" font-size="24" font-family="Arial, sans-serif" font-weight="700">Gujarat</text>
+  </g>
+
+  <text x="120" y="120" fill="#E2E8F0" font-size="42" font-family="Arial, sans-serif" font-weight="700" opacity="0.85">
+    Service Coverage Map
+  </text>
+</svg>
