@@ -4,11 +4,9 @@ import { Link } from "react-router-dom";
 import { Truck, MapPin, Package, ArrowRight, CheckCircle, Globe2 } from "lucide-react";
 import fleetImg from "@/assets/vehicals/tata-flatbed-trailer-truck-heavy-cargo-transport-construction-site.png";
 import highlightImg from "@/assets/coverage-map.svg";
-import specDefImg from "@/assets/def-material.jpeg";
-import specBucketImg from "@/assets/color-buckets.jpeg";
-import specPaintBagImg from "@/assets/paint-bag.jpeg";
 import { setPageSeo } from "@/lib/seo";
 import { vehicles } from "@/data/vehicles";
+import { products } from "@/data/products";
 
 const services = [
   {
@@ -82,28 +80,9 @@ const Services = () => {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
-            {[
-              {
-                title: "TATA DEF Materials",
-                desc: "All Maharashtra and Goa line transportation specialist.",
-                image: specDefImg,
-                imageClassName: "object-cover object-[50%_24%] scale-[1.26]",
-              },
-              {
-                title: "Color Buckets",
-                desc: "Color buckets transportation specialist.",
-                image: specBucketImg,
-                imageClassName: "object-cover object-center scale-[1.08]",
-              },
-              {
-                title: "Paint Bags",
-                desc: "Paint bag transportation specialist.",
-                image: specPaintBagImg,
-                imageClassName: "object-cover object-[50%_84%] scale-[1.3]",
-              },
-            ].map((item, i) => (
+            {products.map((item, i) => (
               <motion.div
-                key={item.title}
+                key={item.slug}
                 variants={fadeUp}
                 initial="hidden"
                 whileInView="visible"
@@ -111,15 +90,23 @@ const Services = () => {
                 custom={i}
                 className="overflow-hidden rounded-2xl border border-secondary/30 bg-secondary/10"
               >
-                <div className="h-56 overflow-hidden bg-white">
-                  <img src={item.image} alt={item.title} className={`h-full w-full ${item.imageClassName}`} loading="lazy" />
+                <div className="h-56 md:h-64 overflow-hidden bg-white">
+                  <img src={item.image} alt={item.name} className="h-full w-full object-contain p-3" loading="lazy" />
                 </div>
                 <div className="p-6 md:p-7">
-                  <h3 className="font-heading text-xl font-black text-primary mb-2">{item.title}</h3>
+                  <h3 className="font-heading text-xl font-black text-primary mb-2">{item.name}</h3>
                   <p className="text-muted-foreground font-semibold text-sm">{item.desc}</p>
+                  <Link to={`/products/${item.slug}`} className="mt-4 inline-flex items-center gap-2 text-secondary text-sm font-semibold">
+                    View Details <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
               </motion.div>
             ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link to="/products" className="inline-flex items-center gap-2 text-secondary font-semibold text-sm">
+              Explore All Products <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -231,9 +218,11 @@ const Services = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <h3 className="font-heading font-bold text-base md:text-lg text-primary">{v.shortName}</h3>
-                      <span className="text-xs font-heading font-bold bg-secondary/10 text-secondary px-3 py-1 rounded-full">{v.capacity}</span>
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <h3 className="font-heading font-bold text-base md:text-lg text-primary leading-tight">{v.shortName}</h3>
+                      <span className="shrink-0 whitespace-nowrap rounded-full bg-secondary/10 px-2.5 py-1.5 text-[11px] font-heading font-bold leading-none text-secondary sm:px-3 sm:text-xs">
+                        {v.capacity}
+                      </span>
                     </div>
                     <p className="text-muted-foreground text-sm mb-4">{v.desc}</p>
                     <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold">

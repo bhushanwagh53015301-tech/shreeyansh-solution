@@ -124,7 +124,7 @@ const VehicleDetails = () => {
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
-                to="/contact"
+                to={`/contact?item=${encodeURIComponent(vehicle.shortName)}`}
                 className="inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-7 py-3.5 rounded-lg font-heading font-bold text-sm"
               >
                 Get Quote for {vehicle.shortName} <ArrowRight className="h-4 w-4" />

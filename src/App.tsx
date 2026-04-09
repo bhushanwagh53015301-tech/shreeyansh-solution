@@ -10,8 +10,10 @@ import FloatingActions from "@/components/FloatingActions";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Services from "./pages/Services.tsx";
+import Products from "./pages/Products.tsx";
 import Contact from "./pages/Contact.tsx";
 import VehicleDetails from "./pages/VehicleDetails.tsx";
+import ProductDetails from "./pages/ProductDetails.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -29,6 +31,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/products/:slug" element={<ProductDetails />} />
             <Route path="/vehicles/:slug" element={<VehicleDetails />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

@@ -5,6 +5,7 @@ import tata709Img from "@/assets/vehicals/tata-lpt-709-truck-power-steering-whit
 import tataSfc909Img from "@/assets/vehicals/tata-sfc-909-medium-duty-truck-goods-carrier-india.png";
 import tataTrailerImg from "@/assets/vehicals/tata-flatbed-trailer-truck-heavy-cargo-transport-construction-site.png";
 import heavyEquipmentImg from "@/assets/vehicals/tractor-transport-flatbed-truck-india-heavy-equipment-logistic.png";
+import eicher20ftImg from "@/assets/vehicals/eicher-turbo-truck-20ft-heavy-duty-logistics.png";
 
 export type VehicleItem = {
   slug: string;
@@ -97,10 +98,10 @@ export const vehicles: VehicleItem[] = [
     name: "20ft Container Truck",
     shortName: "20ft Container",
     desc: "Containerized cargo transport for secure and weather-protected shipments.",
-    image: tataTrailerImg,
-    fallbackImage: tataTrailerImg,
-    imageClassName: "object-contain bg-white p-2 group-hover:scale-105",
-    detailImageClassName: "object-contain bg-white p-4",
+    image: eicher20ftImg,
+    fallbackImage: eicher20ftImg,
+    imageClassName: "object-contain bg-white p-1 group-hover:scale-105",
+    detailImageClassName: "object-contain bg-white p-2",
     capacity: "7-10 Ton",
     grossRange: "Secure enclosed cargo",
     routeSuitability: "Interstate and long routes",
@@ -109,16 +110,16 @@ export const vehicles: VehicleItem[] = [
   },
   {
     slug: "jcb-heavy-equipment",
-    name: "JCB & Heavy Equipment",
-    shortName: "JCB & Heavy Equipment",
-    desc: "Construction and heavy equipment on rent for industrial and infrastructure projects.",
+    name: "JCB Vehicles & ODC Material Movements",
+    shortName: "JCB & ODC Movement",
+    desc: "JCB vehicles and ODC material movements for industrial and infrastructure projects.",
     image: heavyEquipmentImg,
     fallbackImage: heavyEquipmentImg,
-    capacity: "Heavy Duty",
-    grossRange: "Machinery and equipment movement",
+    capacity: "32ft ODC",
+    grossRange: "ODC and machinery movement",
     routeSuitability: "Project-based route planning",
-    bestFor: ["Construction machinery", "Project equipment movement", "Industrial site support"],
-    highlights: ["Heavy-duty logistics support", "Project-focused deployment", "Built for specialized transport needs"],
+    bestFor: ["JCB vehicle transport", "ODC material movement", "Industrial site support"],
+    highlights: ["Heavy-duty logistics support", "Specialized ODC handling", "Project-focused deployment"],
   },
   {
     slug: "40ft-trailer",

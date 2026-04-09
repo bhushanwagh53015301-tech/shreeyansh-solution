@@ -1,9 +1,14 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, Clock, Mail, CircleHelp } from "lucide-react";
 import { useState, FormEvent, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { setPageSeo } from "@/lib/seo";
+import { vehicles } from "@/data/vehicles";
+import { products } from "@/data/products";
 
 const CONTACT_EMAIL = "shreeyanshlogitechsolutions@gmail.com";
+const NAME_REGEX = /^[A-Za-z ]+$/;
+const PHONE_REGEX = /^[6-9]\d{9}$/;
 
 const bookingSteps = [
   { step: "01", title: "Share Requirement", desc: "Provide load type, route, and preferred date." },
@@ -26,12 +31,27 @@ const contactFaqs = [
   },
 ];
 
+const vehicleTypeOptions = vehicles.map((vehicle) => vehicle.shortName);
+const productTypeOptions = products.map((product) => product.name);
+const selectableOptions = new Set([...vehicleTypeOptions, ...productTypeOptions]);
+
+type FormErrors = {
+  fullName?: string;
+  phone?: string;
+  vehicleType?: string;
+  cargoRouteDetails?: string;
+};
+
 const Contact = () => {
+  const [searchParams] = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [vehicleType, setVehicleType] = useState("");
   const [cargoRouteDetails, setCargoRouteDetails] = useState("");
+  const [errors, setErrors] = useState<FormErrors>({});
 
   useEffect(() => {
     setPageSeo(
@@ -49,19 +69,86 @@ const Contact = () => {
     );
   }, []);
 
-  const handleSubmit = (e: FormEvent) => {
+  useEffect(() => {
+    const selectedItem = searchParams.get("item");
+    if (!selectedItem) return;
+    if (!selectableOptions.has(selectedItem)) return;
+    setVehicleType(selectedItem);
+  }, [searchParams]);
+
+  const validateForm = () => {
+    const nextErrors: FormErrors = {};
+
+    if (!fullName.trim()) {
+      nextErrors.fullName = "Full name is required.";
+    } else if (fullName.trim().length < 2) {
+      nextErrors.fullName = "Enter at least 2 characters.";
+    } else if (!NAME_REGEX.test(fullName.trim())) {
+      nextErrors.fullName = "Use only letters and spaces.";
+    }
+
+    if (!phone.trim()) {
+      nextErrors.phone = "Phone number is required.";
+    } else if (!PHONE_REGEX.test(phone.trim())) {
+      nextErrors.phone = "Enter a valid Indian phone number.";
+    }
+
+    if (!vehicleType.trim()) {
+      nextErrors.vehicleType = "Please select a vehicle type.";
+    }
+
+    if (!cargoRouteDetails.trim()) {
+      nextErrors.cargoRouteDetails = "Message is required.";
+    } else if (cargoRouteDetails.trim().length < 10) {
+      nextErrors.cargoRouteDetails = "Message must be at least 10 characters.";
+    }
+
+    setErrors(nextErrors);
+    return Object.keys(nextErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setSubmitError("");
+    if (!validateForm()) return;
+    setIsSubmitting(true);
 
-    const subject = encodeURIComponent("Truck Transport Quote Request");
-    const body = encodeURIComponent(
-      `Name: ${fullName}
-Phone: ${phone}
-Vehicle Type: ${vehicleType}
-Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
-    );
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: "Truck Transport Quote Request",
+          name: fullName,
+          phone,
+          vehicleType,
+          message: cargoRouteDetails || "Not provided",
+        }),
+      });
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+      if (!response.ok) {
+        throw new Error("Form service request failed");
+      }
+
+      const result = await response.json();
+      if (result.success !== "true") {
+        throw new Error("Form service did not accept the enquiry");
+      }
+
+      setSubmitted(true);
+      setFullName("");
+      setPhone("");
+      setVehicleType("");
+      setCargoRouteDetails("");
+      setErrors({});
+    } catch {
+      setSubmitError("Submission failed. Please call or WhatsApp us directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -212,10 +299,14 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
                       type="text"
                       required
                       value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
+                      onChange={(e) => {
+                        setFullName(e.target.value);
+                        if (errors.fullName) setErrors((prev) => ({ ...prev, fullName: undefined }));
+                      }}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
                       placeholder="Your name"
                     />
+                    {errors.fullName ? <p className="text-sm text-destructive mt-1.5">{errors.fullName}</p> : null}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Phone Number</label>
@@ -223,43 +314,91 @@ Cargo & Route Details: ${cargoRouteDetails || "Not provided"}`
                       type="tel"
                       required
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => {
+                        const nextPhone = e.target.value.replace(/\D/g, "").slice(0, 10);
+                        setPhone(nextPhone);
+                        if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
+                      }}
+                      inputMode="numeric"
+                      maxLength={10}
+                      pattern="[6-9][0-9]{9}"
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
-                      placeholder="Your phone number"
+                      placeholder="10-digit phone number"
                     />
+                    {errors.phone ? <p className="text-sm text-destructive mt-1.5">{errors.phone}</p> : null}
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-1.5">Vehicle Type Needed</label>
+                    <label className="block text-sm font-semibold text-foreground mb-1.5">Vehicle / Product Needed</label>
                     <select
                       required
                       value={vehicleType}
-                      onChange={(e) => setVehicleType(e.target.value)}
+                      onChange={(e) => {
+                        setVehicleType(e.target.value);
+                        if (errors.vehicleType) setErrors((prev) => ({ ...prev, vehicleType: undefined }));
+                      }}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
                     >
-                      <option value="">Select vehicle type</option>
-                      <option>Pick Up / Tata 407</option>
-                      <option>709 / 909 / 1109</option>
-                      <option>20ft Container</option>
-                      <option>JCB</option>
-                      <option>40ft Trailer</option>
+                      <option value="">Select vehicle or product</option>
+                      <optgroup label="Vehicles">
+                        {vehicleTypeOptions.map((vehicleName) => (
+                          <option key={vehicleName} value={vehicleName}>
+                            {vehicleName}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="Products">
+                        {productTypeOptions.map((productName) => (
+                          <option key={productName} value={productName}>
+                            {productName}
+                          </option>
+                        ))}
+                      </optgroup>
                     </select>
+                    {errors.vehicleType ? <p className="text-sm text-destructive mt-1.5">{errors.vehicleType}</p> : null}
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Message</label>
                     <textarea
                       rows={4}
                       value={cargoRouteDetails}
-                      onChange={(e) => setCargoRouteDetails(e.target.value)}
+                      onChange={(e) => {
+                        setCargoRouteDetails(e.target.value);
+                        if (errors.cargoRouteDetails) setErrors((prev) => ({ ...prev, cargoRouteDetails: undefined }));
+                      }}
                       className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all resize-none"
                       placeholder="Describe your requirements..."
                     />
+                    {errors.cargoRouteDetails ? <p className="text-sm text-destructive mt-1.5">{errors.cargoRouteDetails}</p> : null}
                   </div>
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="w-full bg-secondary text-secondary-foreground py-3.5 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity"
                   >
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
+                  {submitError ? (
+                    <p className="text-sm text-destructive">{submitError}</p>
+                  ) : null}
+                  <div className="rounded-lg border border-border bg-background/60 p-3.5">
+                    <p className="text-xs text-muted-foreground mb-2">If form does not send, use instant contact:</p>
+                    <div className="flex flex-col sm:flex-row gap-2">
+                      <a
+                        href="tel:9273234588"
+                        className="inline-flex items-center justify-center rounded-md bg-secondary px-3 py-2 text-xs font-heading font-bold text-secondary-foreground hover:opacity-90 transition-opacity"
+                      >
+                        Call Now
+                      </a>
+                      <a
+                        href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20need%20truck%20booking%20support."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center rounded-md border border-border px-3 py-2 text-xs font-heading font-bold text-foreground hover:bg-muted transition-colors"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
+                  </div>
                 </form>
               )}
             </div>

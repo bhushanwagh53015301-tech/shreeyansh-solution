@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     question: "Do you provide heavy vehicles like trailer and JCB support?",
-    answer: "Yes, we offer multiple categories including trailers, containers, and heavy equipment support.",
+    answer: "Yes, we offer trailers, JCB, ODC vehicles.",
   },
   {
     question: "How can I get a quote?",
@@ -342,9 +342,11 @@ const Index = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center justify-between gap-2 mb-3">
-                      <h3 className="font-heading font-bold text-base md:text-lg text-primary">{v.shortName}</h3>
-                      <span className="text-xs font-heading font-bold bg-secondary/10 text-secondary px-3 py-1 rounded-full">{v.capacity}</span>
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <h3 className="font-heading font-bold text-base md:text-lg text-primary leading-tight">{v.shortName}</h3>
+                      <span className="shrink-0 whitespace-nowrap rounded-full bg-secondary/10 px-2.5 py-1.5 text-[11px] font-heading font-bold leading-none text-secondary sm:px-3 sm:text-xs">
+                        {v.capacity}
+                      </span>
                     </div>
                     <p className="text-muted-foreground text-sm mb-4">{v.desc}</p>
                     <span className="inline-flex items-center gap-2 text-secondary text-sm font-semibold">
