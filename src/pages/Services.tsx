@@ -31,6 +31,33 @@ const services = [
   },
 ];
 
+const destinationZones = [
+  {
+    title: "Pune Region",
+    locations: ["Local Pune", "Shirur", "Karegaon, Shirur", "Baramati"],
+  },
+  {
+    title: "Western Maharashtra",
+    locations: ["Solapur", "Kolhapur", "Sangli"],
+  },
+  {
+    title: "Mumbai Metropolitan Region",
+    locations: ["Mumbai City", "Navi Mumbai", "Vasai", "Bhiwandi", "Panvel", "Thane", "Manor", "Palghar"],
+  },
+  {
+    title: "Central Maharashtra",
+    locations: ["Ahmednagar", "Aurangabad", "Jalna", "Karmad"],
+  },
+  {
+    title: "Marathwada & Vidarbha",
+    locations: ["Nagpur", "Nanded", "Beed", "Parli", "Latur"],
+  },
+  {
+    title: "North Maharashtra",
+    locations: ["Nashik", "Malegaon", "Dhule", "Jalgaon"],
+  },
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.12, duration: 0.6 } }),
@@ -153,6 +180,45 @@ const Services = () => {
                   ))}
                 </div>
               </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-card rounded-2xl border border-border p-6 md:p-8 mt-8 md:mt-10 shadow-sm"
+          >
+            <div className="flex flex-wrap items-center gap-2.5 mb-4">
+              <span className="rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold tracking-wide">
+                Origin: Chakan
+              </span>
+              <span className="rounded-full bg-secondary/10 text-secondary px-3 py-1 text-xs font-semibold tracking-wide">
+                28 Destination Points
+              </span>
+            </div>
+            <h3 className="font-heading text-xl md:text-2xl font-black text-primary mb-2">
+              Destination Network from <span className="text-secondary">Chakan</span>
+            </h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              Planned FTL movement across major commercial and industrial corridors in Maharashtra.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {destinationZones.map((zone) => (
+                <div key={zone.title} className="rounded-xl border border-border bg-background p-4">
+                  <h4 className="font-heading text-base font-bold text-primary mb-3">{zone.title}</h4>
+                  <ul className="space-y-2">
+                    {zone.locations.map((location) => (
+                      <li key={location} className="text-sm text-foreground flex items-start gap-2">
+                        <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
+                        <span>{location}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

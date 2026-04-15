@@ -40,7 +40,7 @@ const Footer = () => (
               <MapPin className="h-4 w-4 mt-1 text-secondary shrink-0" />
               <span>
                 SHREEYANSH LOGITECH SOLUTIONS, Swarajya Residency, Shop No. 1, Chakan MIDC Phase-V, Biradawadi,
-                Taluka-Khed, Dist-Pune, Pin-401501
+                Taluka-Khed, Dist-Pune, Pin-410501
               </span>
             </div>
             <a href="tel:9273234588" className="flex items-center gap-2 hover:text-secondary transition-colors">

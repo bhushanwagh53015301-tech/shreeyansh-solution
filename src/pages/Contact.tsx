@@ -222,7 +222,7 @@ const Contact = () => {
                     <br />
                     Chakan MIDC Phase-V, Biradawadi,
                     <br />
-                    Taluka-Khed, Dist-Pune, Pin-401501
+                    Taluka-Khed, Dist-Pune, Pin-410501
                   </p>
                 </div>
               </div>
