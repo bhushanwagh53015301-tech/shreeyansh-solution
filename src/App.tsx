@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import FloatingActions from "@/components/FloatingActions";
+import MobileBottomCTA from "@/components/MobileBottomCTA";
 import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Services from "./pages/Services.tsx";
@@ -26,7 +27,7 @@ const App = () => (
       <BrowserRouter>
         <ScrollToTop />
         <Navbar />
-        <main>
+        <main className="pb-20 md:pb-0">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
@@ -39,6 +40,7 @@ const App = () => (
           </Routes>
         </main>
         <FloatingActions />
+        <MobileBottomCTA />
         <Footer />
       </BrowserRouter>
     </TooltipProvider>

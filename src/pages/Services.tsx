@@ -59,24 +59,24 @@ const Services = () => {
 
   return (
     <div className="pt-20">
-      <section className="bg-hero-gradient py-20">
+      <section className="bg-hero-gradient py-14 md:py-20">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <h1 className="font-heading text-4xl md:text-5xl font-black text-primary-foreground mb-4">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground mb-4">
               Our <span className="text-secondary">Services</span>
             </h1>
-            <p className="text-primary-foreground/80 max-w-2xl text-lg">
+            <p className="text-primary-foreground/80 max-w-2xl text-base sm:text-lg md:text-xl">
               Comprehensive FTL transportation services across Maharashtra, Goa and Gujarat.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-8 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-6 md:mb-8">
             <p className="font-heading text-sm font-black tracking-widest text-secondary mb-2 text-center">SPECIALIZED MATERIAL TRANSPORT</p>
-            <h2 className="font-heading text-2xl md:text-3xl font-black text-primary text-center">Material Handling Expertise</h2>
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-black text-primary text-center">Material Handling Expertise</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-5 md:gap-6">
@@ -111,7 +111,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-10 md:py-12 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -158,8 +158,8 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container grid md:grid-cols-2 gap-12 items-center">
+      <section className="py-10 md:py-16 lg:py-20">
+        <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div className="flex gap-4 mb-6">
               {[Truck, MapPin, Package].map((Icon, i) => (
@@ -168,7 +168,7 @@ const Services = () => {
                 </div>
               ))}
             </div>
-            <h2 className="font-heading text-3xl font-black text-primary mb-4">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-4">
               Full Truck Load <span className="text-secondary">Transportation</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed">
@@ -181,10 +181,10 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               Vehicles Available <span className="text-secondary">On Rent</span>
             </h2>
           </motion.div>
@@ -219,8 +219,8 @@ const Services = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex items-start justify-between gap-2 mb-3">
-                      <h3 className="font-heading font-bold text-base md:text-lg text-primary leading-tight">{v.shortName}</h3>
-                      <span className="shrink-0 whitespace-nowrap rounded-full bg-secondary/10 px-2.5 py-1.5 text-[11px] font-heading font-bold leading-none text-secondary sm:px-3 sm:text-xs">
+                      <h3 className="min-w-0 font-heading font-bold text-base md:text-lg text-primary leading-tight">{v.shortName}</h3>
+                      <span className="shrink-0 rounded-full bg-secondary/10 px-2.5 py-1.5 text-[11px] font-heading font-bold leading-none text-secondary sm:px-3 sm:text-xs sm:whitespace-nowrap">
                         {v.capacity}
                       </span>
                     </div>
@@ -245,7 +245,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="bg-section-light py-20">
+      <section className="bg-section-light py-14 md:py-20">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-6">
             {services.map((svc, i) => (
@@ -268,6 +268,74 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Service Coverage */}
+      <section className="py-12 md:py-16 lg:py-20 bg-section-light">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
+              Our Service <span className="text-secondary">Coverage</span>
+            </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+              Reliable FTL transportation across western India with focus on Maharashtra, Goa, and selected routes in Gujarat.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
+            <motion.div initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <img src={highlightImg} alt="Service coverage map" className="w-full rounded-2xl shadow-lg" loading="lazy" />
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <h3 className="font-heading text-2xl font-bold text-primary mb-6">Extensive Regional Network</h3>
+              <div className="space-y-4">
+                <div className="flex gap-4">
+                  <MapPin className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">Maharashtra</h4>
+                    <p className="text-sm text-muted-foreground">Pune, Mumbai, Nagpur, Aurangabad, Nashik, MIDC areas, and all major industrial zones.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <MapPin className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">Goa</h4>
+                    <p className="text-sm text-muted-foreground">North Goa and South Goa regions with regular scheduled routes and reliable service.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <MapPin className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-heading font-bold text-foreground mb-1">Gujarat</h4>
+                    <p className="text-sm text-muted-foreground">Vapi, Vadodara, and select industrial areas with interstate permits and experienced drivers.</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Stats */}
+          <div className="grid sm:grid-cols-3 gap-6">
+            {[
+              { number: "3", label: "States Covered" },
+              { number: "50+", label: "Cities & Towns" },
+              { number: "100+", label: "Regular Routes" },
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                className="bg-card rounded-2xl p-6 text-center shadow-sm"
+              >
+                <p className="font-heading text-3xl font-black text-secondary mb-2">{stat.number}</p>
+                <p className="text-sm font-semibold text-foreground">{stat.label}</p>
               </motion.div>
             ))}
           </div>

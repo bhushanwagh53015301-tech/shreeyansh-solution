@@ -1,25 +1,21 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Phone, BadgeCheck, Headset, Route, Star } from "lucide-react";
+import { ArrowRight, Phone, Star } from "lucide-react";
 import heroImg from "@/assets/vehicals/tata-cargo-truck-commercial-transport-logistics-india.png";
 import fleetImg from "@/assets/vehicals/tata-flatbed-trailer-truck-heavy-cargo-transport-construction-site.png";
 import containerTruckImg from "@/assets/vehicals/tractor-transport-flatbed-truck-india-heavy-equipment-logistic.png";
 import { vehicles } from "@/data/vehicles";
 import { setPageSeo } from "@/lib/seo";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import InsuranceSection from "@/components/InsuranceSection";
+import NewsletterSection from "@/components/NewsletterSection";
 
 const stats = [
   { value: 100, suffix: "+", label: "Vehicles" },
   { value: 18, suffix: "+", label: "Years Experience" },
   { value: 3, suffix: "", label: "States Covered" },
   { value: 500, suffix: "+", label: "Happy Clients" },
-];
-
-const whyChooseUs = [
-  { icon: BadgeCheck, title: "Reliable Fleet Availability", desc: "All major vehicle categories available for urgent and planned bookings." },
-  { icon: Route, title: "Route Expertise", desc: "Regular operations across Maharashtra, Goa, and Gujarat service corridors." },
-  { icon: Shield, title: "Safer Cargo Handling", desc: "Handled by experienced drivers with practical loading and transit discipline." },
-  { icon: Headset, title: "Responsive Support", desc: "Quick coordination support from booking to delivery completion." },
 ];
 
 const howItWorks = [
@@ -81,9 +77,9 @@ const faqs = [
 ];
 
 const heroBanners = [
-  { image: heroImg, alt: "Truck fleet on highway" },
-  { image: fleetImg, alt: "Logistics fleet yard" },
-  { image: containerTruckImg, alt: "Container truck transport" },
+  { image: heroImg, alt: "Truck fleet on highway", imagePosition: "object-[78%_center] md:object-right" },
+  { image: fleetImg, alt: "Logistics fleet yard", imagePosition: "object-[72%_center] md:object-right" },
+  { image: containerTruckImg, alt: "Container truck transport", imagePosition: "object-[76%_center] md:object-right" },
 ];
 
 const fadeUp = {
@@ -146,7 +142,7 @@ const Index = () => {
             streetAddress: "Swarajya Residency, Shop No. 1, Chakan MIDC Phase-V, Biradawadi",
             addressLocality: "Taluka-Khed",
             addressRegion: "Maharashtra",
-            postalCode: "401501",
+            postalCode: "410501",
             addressCountry: "IN",
           },
         },
@@ -188,35 +184,35 @@ const Index = () => {
               key={banner.alt}
               src={banner.image}
               alt={banner.alt}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === heroIndex ? "opacity-100" : "opacity-0"}`}
+              className={`absolute inset-0 w-full h-full object-cover ${banner.imagePosition} transition-opacity duration-700 ${i === heroIndex ? "opacity-100" : "opacity-0"}`}
               width={1920}
               height={1080}
             />
           ))}
           <div className="absolute inset-0 bg-hero-gradient opacity-80" />
         </div>
-        <div className="container relative z-10 py-20 md:py-32">
+        <div className="container relative z-10 py-16 md:py-32">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-2xl">
             <span className="inline-block bg-secondary text-secondary-foreground px-4 py-1.5 rounded-full font-heading text-xs font-bold tracking-wider mb-6">
               #1 TRUSTED TRUCK RENTAL IN MAHARASHTRA
             </span>
-            <h1 className="font-heading text-3xl md:text-6xl font-black text-primary-foreground leading-tight mb-5 md:mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground leading-tight mb-5 md:mb-6">
               Full Truck Load <br />
               <span className="text-secondary">Transportation</span> Solutions
             </h1>
-            <p className="text-primary-foreground/85 text-base md:text-xl mb-7 md:mb-8 leading-relaxed">
+            <p className="text-primary-foreground/85 text-base sm:text-lg md:text-xl mb-7 md:mb-8 leading-relaxed">
               Rent all vehicle types from Pick Up to 40ft Trailer. Serving selected routes in Maharashtra, Goa, and Gujarat.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Link
                 to="/contact"
-                className="bg-secondary text-secondary-foreground px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                className="min-h-11 bg-secondary text-secondary-foreground px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
               >
                 Get a Quote <ArrowRight className="h-4 w-4" />
               </Link>
               <a
                 href="tel:9273234588"
-                className="border-2 border-primary-foreground/30 text-primary-foreground px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-heading font-bold text-sm hover:bg-primary-foreground/10 transition-colors flex items-center justify-center gap-2"
+                className="min-h-11 border-2 border-primary-foreground/30 text-primary-foreground px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-heading font-bold text-sm hover:bg-primary-foreground/10 transition-colors flex items-center justify-center gap-2"
               >
                 <Phone className="h-4 w-4" /> Call Now
               </a>
@@ -240,7 +236,7 @@ const Index = () => {
       <section className="py-6 md:py-8 bg-card">
         <div className="container">
           <div className="rounded-2xl border-2 border-secondary/30 bg-secondary/10 px-4 md:px-6 py-4 md:py-5 text-center">
-            <p className="font-heading text-lg md:text-2xl font-black text-primary leading-snug">
+            <p className="font-heading text-base sm:text-lg md:text-2xl font-black text-primary leading-snug">
               We Provide <span className="text-secondary">All Types of Full Truckload Vehicles</span> in
               <span className="text-secondary"> Maharashtra, Goa, and Gujarat</span> (Selected Areas).
             </p>
@@ -249,7 +245,7 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="bg-card py-10 md:py-12">
+      <section className="bg-card py-10 md:py-16 lg:py-20">
         <div className="container">
           <div className="bg-card rounded-2xl shadow-xl p-5 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, i) => (
@@ -265,30 +261,13 @@ const Index = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-14 md:py-20 bg-card">
-        <div className="container">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
-              Why Choose <span className="text-secondary">Us</span>
-            </h2>
-          </motion.div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-            {whyChooseUs.map((item, i) => (
-              <motion.div key={item.title} variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }} custom={i} className="rounded-xl border border-border bg-background p-6">
-                <item.icon className="h-7 w-7 text-secondary mb-4" />
-                <h3 className="font-heading font-bold text-primary mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyChooseUs />
 
       {/* How It Works */}
-      <section className="py-14 md:py-20 bg-section-light">
+      <section className="py-10 md:py-16 lg:py-20 bg-section-light">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               How Booking <span className="text-secondary">Works</span>
             </h2>
           </motion.div>
@@ -305,10 +284,10 @@ const Index = () => {
       </section>
 
       {/* Fleet Cards */}
-      <section className="py-14 md:py-20 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               Vehicles Available <span className="text-secondary">On Rent</span>
             </h2>
           </motion.div>
@@ -325,7 +304,7 @@ const Index = () => {
                 className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all group"
               >
                 <Link to={`/vehicles/${v.slug}`} className="block">
-                  <div className="overflow-hidden h-48 md:h-52">
+                  <div className="overflow-hidden w-full h-48 md:h-56">
                     <img
                       src={v.image}
                       alt={v.name}
@@ -343,8 +322,8 @@ const Index = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex items-start justify-between gap-2 mb-3">
-                      <h3 className="font-heading font-bold text-base md:text-lg text-primary leading-tight">{v.shortName}</h3>
-                      <span className="shrink-0 whitespace-nowrap rounded-full bg-secondary/10 px-2.5 py-1.5 text-[11px] font-heading font-bold leading-none text-secondary sm:px-3 sm:text-xs">
+                      <h3 className="min-w-0 font-heading font-bold text-base md:text-lg text-primary leading-tight">{v.shortName}</h3>
+                      <span className="shrink-0 rounded-full bg-secondary/10 px-2.5 py-1.5 text-[11px] font-heading font-bold leading-none text-secondary sm:px-3 sm:text-xs sm:whitespace-nowrap">
                         {v.capacity}
                       </span>
                     </div>
@@ -361,10 +340,10 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-14 md:py-20 bg-section-light">
+      <section className="py-10 md:py-16 lg:py-20 bg-section-light">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               Client <span className="text-secondary">Testimonials</span>
             </h2>
           </motion.div>
@@ -405,10 +384,10 @@ const Index = () => {
       </section>
 
       {/* Blogs */}
-      <section className="py-14 md:py-20 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               Latest <span className="text-secondary">Blogs</span>
             </h2>
           </motion.div>
@@ -443,10 +422,10 @@ const Index = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-14 md:py-20 bg-section-light">
+      <section className="py-10 md:py-16 lg:py-20 bg-section-light">
         <div className="container max-w-4xl">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-10 md:mb-12">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               Frequently Asked <span className="text-secondary">Questions</span>
             </h2>
           </motion.div>
@@ -465,11 +444,11 @@ const Index = () => {
       </section>
 
       {/* Fleet CTA */}
-      <section className="py-14 md:py-20 bg-section-light">
+      <section className="py-10 md:py-16 lg:py-20 bg-section-light">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             <motion.div initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-              <h2 className="font-heading text-2xl md:text-4xl font-black text-primary mb-5 md:mb-6">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-5 md:mb-6">
                 A Fleet for <span className="text-secondary">Every Need</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -489,21 +468,30 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Insurance & Certifications */}
+      <InsuranceSection />
+
+      {/* Newsletter */}
+      <NewsletterSection />
+
       {/* Quick CTA */}
-      <section className="py-14 md:py-20 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <div className="rounded-2xl bg-hero-gradient px-6 md:px-10 py-10 md:py-14 text-center">
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary-foreground mb-4">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary-foreground mb-4">
               Need a Truck Quickly?
             </h2>
-            <p className="text-primary-foreground/85 max-w-2xl mx-auto mb-7">
+            <p className="text-primary-foreground/85 text-base sm:text-lg max-w-2xl mx-auto mb-7">
               Get a fast quote for local, intercity, and interstate full truckload transport.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
-              <Link to="/contact" className="bg-secondary text-secondary-foreground px-6 md:px-8 py-3.5 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity">
+              <Link to="/contact" className="min-h-11 inline-flex items-center justify-center bg-secondary text-secondary-foreground px-6 md:px-8 py-3.5 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity">
                 Get Instant Quote
               </Link>
-              <a href="tel:9273234588" className="border-2 border-primary-foreground/35 text-primary-foreground px-6 md:px-8 py-3.5 rounded-lg font-heading font-bold text-sm hover:bg-primary-foreground/10 transition-colors">
+              <a
+                href="tel:9273234588"
+                className="min-h-11 w-full sm:w-auto inline-flex items-center justify-center border-2 border-primary-foreground/35 text-primary-foreground px-6 md:px-8 py-3.5 rounded-lg font-heading font-bold text-sm text-center whitespace-normal break-words hover:bg-primary-foreground/10 transition-colors"
+              >
                 Call: 9273234588 / 7744897661
               </a>
             </div>

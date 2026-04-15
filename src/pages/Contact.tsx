@@ -156,17 +156,17 @@ const Contact = () => {
       <section className="bg-hero-gradient py-14 md:py-20">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <h1 className="font-heading text-4xl md:text-5xl font-black text-primary-foreground mb-4">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground mb-4">
               Contact <span className="text-secondary">Us</span>
             </h1>
-            <p className="text-primary-foreground/80 max-w-2xl text-lg">
+            <p className="text-primary-foreground/80 max-w-2xl text-base sm:text-lg md:text-xl">
               Get in touch for quotes, bookings, or any inquiries about our services.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-section-light">
+      <section className="py-10 md:py-16 lg:py-20 bg-section-light">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -175,7 +175,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-center mb-10 md:mb-12"
           >
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-primary">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               Quick <span className="text-secondary">Booking Flow</span>
             </h2>
           </motion.div>
@@ -199,7 +199,7 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="py-14 md:py-20">
+      <section className="py-10 md:py-16 lg:py-20">
         <div className="container grid md:grid-cols-2 gap-8 md:gap-12">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -207,13 +207,13 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="font-heading text-2xl font-black text-primary mb-8">Get in Touch</h2>
+            <h2 className="font-heading text-xl sm:text-2xl md:text-2xl font-black text-primary mb-8">Get in Touch</h2>
             <div className="space-y-6">
-              <div className="flex gap-4">
+              <div className="flex gap-4 min-w-0">
                 <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
                   <MapPin className="h-5 w-5 text-secondary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h4 className="font-heading font-bold text-primary mb-1">Office Address</h4>
                   <p className="text-muted-foreground text-sm">
                     SHREEYANSH LOGITECH SOLUTIONS
@@ -226,11 +226,11 @@ const Contact = () => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-4 min-w-0">
                 <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
                   <Phone className="h-5 w-5 text-secondary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h4 className="font-heading font-bold text-primary mb-1">Phone</h4>
                   <div className="flex flex-col">
                     <a href="tel:9273234588" className="text-muted-foreground text-sm hover:text-secondary transition-colors">
@@ -242,22 +242,22 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-4 min-w-0">
                 <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
                   <Mail className="h-5 w-5 text-secondary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-heading font-bold text-primary mb-1">Email</h3>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="text-muted-foreground text-sm hover:text-secondary transition-colors break-all">
                     {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
-              <div className="flex gap-4">
+              <div className="flex gap-4 min-w-0">
                 <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0">
                   <Clock className="h-5 w-5 text-secondary" />
                 </div>
-                <div>
+                <div className="min-w-0">
                   <h4 className="font-heading font-bold text-primary mb-1">Working Hours</h4>
                   <p className="text-muted-foreground text-sm">Mon - Sat: 9:00 AM - 7:00 PM</p>
                 </div>
@@ -283,8 +283,8 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="bg-card rounded-2xl p-8 shadow-lg">
-              <h2 className="font-heading text-2xl font-black text-primary mb-6">Send us a Message</h2>
+            <div className="bg-card rounded-2xl p-6 md:p-8 shadow-lg">
+              <h2 className="font-heading text-xl sm:text-2xl md:text-2xl font-black text-primary mb-6">Send us a Message</h2>
               {submitted ? (
                 <div className="text-center py-12">
                   <div className="text-5xl mb-4">OK</div>
@@ -293,7 +293,7 @@ const Contact = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
+                  <div className="min-w-0" className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Full Name</label>
                     <input
                       type="text"
@@ -303,12 +303,12 @@ const Contact = () => {
                         setFullName(e.target.value);
                         if (errors.fullName) setErrors((prev) => ({ ...prev, fullName: undefined }));
                       }}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-base min-h-[44px] focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
                       placeholder="Your name"
                     />
                     {errors.fullName ? <p className="text-sm text-destructive mt-1.5">{errors.fullName}</p> : null}
                   </div>
-                  <div>
+                  <div className="min-w-0" className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Phone Number</label>
                     <input
                       type="tel"
@@ -322,12 +322,12 @@ const Contact = () => {
                       inputMode="numeric"
                       maxLength={10}
                       pattern="[6-9][0-9]{9}"
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-base min-h-[44px] focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
                       placeholder="10-digit phone number"
                     />
                     {errors.phone ? <p className="text-sm text-destructive mt-1.5">{errors.phone}</p> : null}
                   </div>
-                  <div>
+                  <div className="min-w-0" className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Vehicle / Product Needed</label>
                     <select
                       required
@@ -336,7 +336,7 @@ const Contact = () => {
                         setVehicleType(e.target.value);
                         if (errors.vehicleType) setErrors((prev) => ({ ...prev, vehicleType: undefined }));
                       }}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-base min-h-[44px] focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all"
                     >
                       <option value="">Select vehicle or product</option>
                       <optgroup label="Vehicles">
@@ -356,7 +356,7 @@ const Contact = () => {
                     </select>
                     {errors.vehicleType ? <p className="text-sm text-destructive mt-1.5">{errors.vehicleType}</p> : null}
                   </div>
-                  <div>
+                  <div className="min-w-0" className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Message</label>
                     <textarea
                       rows={4}
@@ -365,7 +365,7 @@ const Contact = () => {
                         setCargoRouteDetails(e.target.value);
                         if (errors.cargoRouteDetails) setErrors((prev) => ({ ...prev, cargoRouteDetails: undefined }));
                       }}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-sm focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground text-base min-h-[44px] focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all resize-none"
                       placeholder="Describe your requirements..."
                     />
                     {errors.cargoRouteDetails ? <p className="text-sm text-destructive mt-1.5">{errors.cargoRouteDetails}</p> : null}
@@ -373,27 +373,27 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-secondary text-secondary-foreground py-3.5 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity"
+                    className="w-full sm:w-auto bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-heading font-bold text-sm min-h-[44px] flex items-center justify-center hover:opacity-90 transition-opacity"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </button>
                   {submitError ? (
                     <p className="text-sm text-destructive">{submitError}</p>
                   ) : null}
-                  <div className="rounded-lg border border-border bg-background/60 p-3.5">
+                  <div className="rounded-lg border border-border bg-background/60 p-3.5 min-w-0">
                     <p className="text-xs text-muted-foreground mb-2">If form does not send, use instant contact:</p>
-                    <div className="flex flex-col sm:flex-row gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2 min-w-0">
                       <a
                         href="tel:9273234588"
-                        className="inline-flex items-center justify-center rounded-md bg-secondary px-3 py-2 text-xs font-heading font-bold text-secondary-foreground hover:opacity-90 transition-opacity"
+                        className="flex items-center justify-center rounded-md bg-secondary px-3 py-2 text-xs font-heading font-bold text-secondary-foreground hover:opacity-90 transition-opacity"
                       >
                         Call Now
                       </a>
                       <a
-                        href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20need%20truck%20booking%20support."
+                        href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20would%20like%20to%20book%20a%20truck.%20Please%20share%20availability%20and%20quote."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center rounded-md border border-border px-3 py-2 text-xs font-heading font-bold text-foreground hover:bg-muted transition-colors"
+                        className="ems-center justify-center rounded-md border border-border px-3 py-2 text-xs font-heading font-bold text-foreground hover:bg-muted transition-colors"
                       >
                         WhatsApp
                       </a>
@@ -418,15 +418,15 @@ const Contact = () => {
             <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
               <a
                 href="tel:9273234588"
-                className="bg-secondary text-secondary-foreground px-7 py-3.5 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity"
+                className="inline-flex w-full sm:w-auto items-center justify-center bg-secondary text-secondary-foreground px-7 py-3.5 rounded-lg font-heading font-bold text-sm text-center whitespace-normal break-words hover:opacity-90 transition-opacity"
               >
                 Call: 9273234588 / 7744897661
               </a>
               <a
-                href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20need%20truck%20booking%20support."
+                href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20would%20like%20to%20book%20a%20truck.%20Please%20share%20availability%20and%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-primary-foreground/35 text-primary-foreground px-7 py-3.5 rounded-lg font-heading font-bold text-sm hover:bg-primary-foreground/10 transition-colors"
+                className="inline-flex w-full sm:w-auto items-center justify-center border-2 border-primary-foreground/35 text-primary-foreground px-7 py-3.5 rounded-lg font-heading font-bold text-sm text-center whitespace-normal break-words hover:bg-primary-foreground/10 transition-colors"
               >
                 Chat on WhatsApp
               </a>

@@ -33,17 +33,17 @@ const Products = () => {
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-primary-foreground/80 text-sm font-semibold mb-2">Specialized Material Transport</p>
-            <h1 className="font-heading text-3xl md:text-5xl font-black text-primary-foreground mb-4">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground mb-4">
               Our <span className="text-secondary">Products</span>
             </h1>
-            <p className="text-primary-foreground/85 max-w-2xl text-base md:text-lg">
+            <p className="text-primary-foreground/85 max-w-2xl text-base sm:text-lg md:text-xl">
               Product-focused logistics support for DEF materials, color buckets, and paint bags across selected routes.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {products.map((item, i) => (
             <motion.article

@@ -51,19 +51,19 @@ const ProductDetails = () => {
 
   return (
     <div className="pt-16 md:pt-20">
-      <section className="bg-hero-gradient py-14 md:py-20">
+      <section className="bg-hero-gradient py-10 md:py-16 lg:py-20">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-primary-foreground/80 text-sm font-semibold mb-2">Product Details</p>
-            <h1 className="font-heading text-3xl md:text-5xl font-black text-primary-foreground mb-4">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground mb-4">
               {product.name}
             </h1>
-            <p className="text-primary-foreground/85 max-w-2xl text-base md:text-lg">{product.desc}</p>
+            <p className="text-primary-foreground/85 max-w-2xl text-base sm:text-lg md:text-xl">{product.desc}</p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-14 md:py-20 bg-card">
+      <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           <motion.div initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <div className="rounded-2xl border border-border bg-white p-3 shadow-xl">
@@ -101,18 +101,18 @@ const ProductDetails = () => {
               </ul>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 min-w-0">
               <Link
                 to={`/contact?item=${encodeURIComponent(product.name)}`}
-                className="inline-flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-7 py-3.5 rounded-lg font-heading font-bold text-sm"
+                className="flex items-center justify-center gap-2 bg-secondary text-secondary-foreground px-4 sm:px-7 py-3.5 rounded-lg font-heading font-bold text-sm text-center min-w-0 flex-shrink-0"
               >
-                Enquire for {product.shortName} <ArrowRight className="h-4 w-4" />
+                <span className="truncate">Enquire {product.shortName}</span> <ArrowRight className="h-4 w-4 shrink-0" />
               </Link>
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center gap-2 border border-border px-7 py-3.5 rounded-lg font-heading font-bold text-sm text-primary"
+                className="flex items-center justify-center gap-2 border border-border px-4 sm:px-7 py-3.5 rounded-lg font-heading font-bold text-sm text-primary text-center min-w-0"
               >
-                <CheckCircle className="h-4 w-4" /> Back to Products
+                <CheckCircle className="h-4 w-4 shrink-0" /> <span className="hidden sm:inline">Back to</span> Products
               </Link>
             </div>
           </motion.div>

@@ -22,9 +22,9 @@ const FloatingActions = () => {
   };
 
   return (
-    <div className="fixed bottom-3 right-3 md:bottom-4 md:right-4 z-[60] flex flex-col gap-2.5 md:gap-3">
+    <div className="fixed bottom-4 right-3 md:bottom-4 md:right-4 z-[60] flex flex-col gap-2.5 md:gap-3 pb-[env(safe-area-inset-bottom)]">
       <a
-        href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20need%20truck%20booking%20support."
+        href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20would%20like%20to%20book%20a%20truck.%20Please%20share%20availability%20and%20quote."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"

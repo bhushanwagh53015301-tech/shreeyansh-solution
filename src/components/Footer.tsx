@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import { Truck, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-primary text-primary-foreground">
-    <div className="container py-16">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div>
+  <footer className="bg-primary text-primary-foreground overflow-hidden">
+    <div className="container py-12 md:py-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+        <div className="min-w-0">
           <div className="flex items-center gap-2 mb-4">
-            <Truck className="h-8 w-8 text-secondary" />
-            <div>
+            <Truck className="h-8 w-8 text-secondary shrink-0" />
+            <div className="min-w-0">
               <span className="font-heading font-bold text-lg leading-none block">Shreeyansh</span>
               <span className="font-heading text-xs text-secondary font-semibold tracking-wider">LOGITECH SOLUTIONS</span>
             </div>
@@ -18,7 +18,7 @@ const Footer = () => (
           </p>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <h4 className="font-heading font-bold text-lg mb-4">Quick Links</h4>
           <div className="flex flex-col gap-2">
             {["Home", "About", "Services", "Contact"].map((link) => (
@@ -33,7 +33,7 @@ const Footer = () => (
           </div>
         </div>
 
-        <div>
+        <div className="min-w-0">
           <h4 className="font-heading font-bold text-lg mb-4">Contact Info</h4>
           <div className="flex flex-col gap-3 text-sm text-primary-foreground/70">
             <div className="flex items-start gap-2">
@@ -59,11 +59,12 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/20 mt-12 pt-8 text-center text-sm text-primary-foreground/50">
-        © {new Date().getFullYear()} Shreeyansh Logitech Solutions. All rights reserved.
+      <div className="border-t border-primary-foreground/20 mt-10 md:mt-12 pt-7 md:pt-8 text-center text-sm text-primary-foreground/50">
+        {"\u00A9"} {new Date().getFullYear()} Shreeyansh Logitech Solutions. All rights reserved.
       </div>
     </div>
   </footer>
 );
 
 export default Footer;
+

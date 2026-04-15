@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import { Award, Target, Users, Briefcase } from "lucide-react";
+import { Award, Target, Users, Briefcase, Eye, Flag, TrendingUp, Shield } from "lucide-react";
 import directorImg from "@/assets/director-portrait.jpg";
 import { setPageSeo } from "@/lib/seo";
 
@@ -34,12 +34,18 @@ const timeline = [
 
 const missionVision = [
   {
+    icon: Flag,
     title: "Our Mission",
-    desc: "To provide dependable, transparent, and cost-effective full truck load transportation with strong delivery discipline and customer-first coordination.",
+    desc: "To deliver exceptional full truck load transportation services that empower businesses across Maharashtra, Goa, and Gujarat. We are committed to providing reliable, transparent, and cost-effective logistics solutions with unwavering delivery discipline and customer-centric coordination.",
+    highlights: ["99.2% On-Time Delivery", "24/7 Customer Support", "Transparent Pricing"],
+    color: "bg-blue-50 text-blue-600 border-blue-200",
   },
   {
+    icon: Eye,
     title: "Our Vision",
-    desc: "To become the most trusted regional FTL logistics partner for businesses across western India through operational excellence and long-term reliability.",
+    desc: "To become the most trusted regional FTL logistics partner for businesses across western India, setting new standards in operational excellence, technological innovation, and sustainable transportation practices that drive long-term business growth.",
+    highlights: ["Industry Leadership", "Innovation Focus", "Sustainable Growth"],
+    color: "bg-green-50 text-green-600 border-green-200",
   },
 ];
 
@@ -89,21 +95,66 @@ const About = () => {
 
   return (
     <div className="pt-20">
-      <section className="bg-hero-gradient py-20">
+      <section className="bg-hero-gradient py-14 md:py-20">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <h1 className="font-heading text-4xl md:text-5xl font-black text-primary-foreground mb-4">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground mb-4">
               About <span className="text-secondary">Us</span>
             </h1>
-            <p className="text-primary-foreground/80 max-w-2xl text-lg">
+            <p className="text-primary-foreground/80 max-w-2xl text-base sm:text-lg md:text-xl">
               Driven by experience, powered by trust - delivering logistics excellence since 2025.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container grid md:grid-cols-2 gap-16 items-center">
+      <section className="py-14 md:py-20 bg-section-light">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <h2 className="font-heading text-3xl font-black text-primary">
+              Our <span className="text-secondary">Leadership</span>
+            </h2>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="w-full bg-card rounded-2xl shadow-lg overflow-hidden md:flex"
+          >
+            <img
+              src={directorImg}
+              alt="Ravindra S. Padwal - Director"
+              className="w-full md:w-[38%] lg:w-[34%] h-80 md:h-auto object-cover"
+              loading="lazy"
+              width={600}
+              height={600}
+            />
+            <div className="p-8 md:p-12 lg:p-14">
+              <h3 className="font-heading text-3xl font-bold text-primary">Ravindra S. Padwal</h3>
+              <span className="text-secondary font-heading font-semibold text-base">Director</span>
+              <p className="text-muted-foreground text-base leading-relaxed mt-5">
+                Ravi is a seasoned logistics manager and operations expert with over 18 years of experience in the transportation industry with Tata Motors, Mahindra, Gabriel and more.
+              </p>
+              <p className="text-muted-foreground text-base leading-relaxed mt-5">
+                Educated in PGDBM/MBS from Savitribai Phule Pune University in Logistics and Supply Chain Solutions. As a fleet owner with a strong network across the transport sector, he brings deep industry insights to Shreeyansh Logitech Solutions.
+              </p>
+              <p className="text-muted-foreground text-base leading-relaxed mt-5">
+                As the founder, Ravi leads the company with a practical, ground-level approach to logistics planning, vendor coordination, and customer service. His focus on transparent communication, route efficiency, and consistent execution has helped Shreeyansh Logitech Solutions build long-term trust with clients across manufacturing, trading, and distribution sectors.
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-14 md:py-20">
+        <div className="container grid md:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <h2 className="font-heading text-3xl font-black text-primary mb-6">
               Our <span className="text-secondary">Story</span>
@@ -144,7 +195,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="bg-card py-20">
+      <section className="bg-card py-14 md:py-20">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -184,7 +235,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-section-light">
+      <section className="py-14 md:py-20 bg-section-light">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -196,70 +247,99 @@ const About = () => {
             <h2 className="font-heading text-3xl font-black text-primary">
               Mission & <span className="text-secondary">Vision</span>
             </h2>
+            <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+              Driving excellence in logistics through innovation, reliability, and customer-centric solutions.
+            </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {missionVision.map((item, i) => (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
-                className="rounded-2xl bg-card p-8 shadow-sm border border-border"
-              >
-                <h3 className="font-heading text-2xl font-bold text-primary mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <div className="grid md:grid-cols-2 gap-8">
+            {missionVision.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  variants={fadeUp}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  custom={i}
+                  className="group relative"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-300" />
+                  <div className="relative bg-card rounded-3xl p-8 md:p-10 shadow-xl border border-border/50 hover:shadow-2xl transition-all duration-300">
+                    <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl ${item.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="h-8 w-8" />
+                    </div>
 
-      <section className="bg-section-light py-20">
-        <div className="container">
+                    <h3 className="font-heading text-2xl font-bold text-primary mb-4">{item.title}</h3>
+
+                    <p className="text-muted-foreground leading-relaxed mb-6 text-base">{item.desc}</p>
+
+                    <div className="space-y-3">
+                      <h4 className="font-heading font-semibold text-primary text-sm uppercase tracking-wider">Key Commitments</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {item.highlights.map((highlight) => (
+                          <span
+                            key={highlight}
+                            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary/10 text-secondary text-xs font-medium"
+                          >
+                            <TrendingUp className="h-3 w-3" />
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Strategic Goals */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-14"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-16 bg-gradient-to-r from-primary/5 via-secondary/5 to-primary/5 rounded-2xl p-8 md:p-12"
           >
-            <h2 className="font-heading text-3xl font-black text-primary">
-              Our <span className="text-secondary">Leadership</span>
-            </h2>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="max-w-3xl mx-auto bg-card rounded-2xl shadow-lg overflow-hidden md:flex"
-          >
-            <img
-              src={directorImg}
-              alt="Ravindra S. Padwal - Director"
-              className="w-full md:w-64 h-64 md:h-auto object-cover"
-              loading="lazy"
-              width={600}
-              height={600}
-            />
-            <div className="p-8">
-              <h3 className="font-heading text-2xl font-bold text-primary">Ravindra S. Padwal</h3>
-              <span className="text-secondary font-heading font-semibold text-sm">Director</span>
-              <p className="text-muted-foreground text-sm leading-relaxed mt-4">
-                Ravi is a seasoned logistics manager and operations expert with over 18 years of experience in the transportation industry with Tata Motors, Mahindra, Gabriel and more.
-              </p>
-              <p className="text-muted-foreground text-sm leading-relaxed mt-3">
-                Educated in PGDBM/MBS from Savitribai Phule Pune University in Logistics and Supply Chain Solutions. As a fleet owner with a strong network across the transport sector, he brings deep industry insights to Shreeyansh Logitech Solutions.
-              </p>
+            <div className="text-center mb-8">
+              <h3 className="font-heading text-2xl font-bold text-primary mb-2">Strategic Objectives 2026</h3>
+              <p className="text-muted-foreground">Building the foundation for sustainable logistics leadership</p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: Shield, title: "Quality Assurance", desc: "ISO certification & industry standards" },
+                { icon: TrendingUp, title: "Growth Target", desc: "300+ vehicles by 2027" },
+                { icon: Users, title: "Customer Satisfaction", desc: "4.9/5 rating achievement" },
+                { icon: Target, title: "Market Expansion", desc: "Pan-India coverage expansion" },
+              ].map((goal, i) => {
+                const Icon = goal.icon;
+                return (
+                  <motion.div
+                    key={goal.title}
+                    variants={fadeUp}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    custom={i}
+                    className="text-center"
+                  >
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/10 text-secondary mb-3">
+                      <Icon className="h-6 w-6" />
+                    </div>
+                    <h4 className="font-heading font-bold text-primary mb-1">{goal.title}</h4>
+                    <p className="text-sm text-muted-foreground">{goal.desc}</p>
+                  </motion.div>
+                );
+              })}
             </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-card">
+      <section className="py-14 md:py-20 bg-card">
         <div className="container grid md:grid-cols-2 gap-8 md:gap-12">
           <motion.div initial={{ opacity: 0, x: -35 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="font-heading text-3xl font-black text-primary mb-6">

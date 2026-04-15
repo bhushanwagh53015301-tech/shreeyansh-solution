@@ -60,4 +60,3 @@ export const products: ProductItem[] = [
     highlights: ["Consistent vehicle availability", "Transit-friendly handling", "Reliable route coordination"],
   },
 ];
-
