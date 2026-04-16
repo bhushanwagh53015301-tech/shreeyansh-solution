@@ -184,7 +184,7 @@ const Index = () => {
               key={banner.alt}
               src={banner.image}
               alt={banner.alt}
-              className={`absolute inset-0 w-full h-full object-contain md:object-cover ${banner.imagePosition} transition-opacity duration-700 ${i === heroIndex ? "opacity-100" : "opacity-0"}`}
+              className={`absolute inset-0 w-full h-full object-contain object-bottom scale-90 md:scale-[0.85] ${banner.imagePosition} transition-opacity duration-700 ${i === heroIndex ? "opacity-100" : "opacity-0"}`}
               width={1920}
               height={1080}
             />
