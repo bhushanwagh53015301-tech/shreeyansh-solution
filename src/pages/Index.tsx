@@ -284,7 +284,7 @@ const Index = () => {
       </section>
 
       {/* Fleet Cards */}
-      <section className="py-10 md:py-16 lg:py-20 bg-card">
+      <section id="fleet" className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">

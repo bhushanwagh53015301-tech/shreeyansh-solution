@@ -55,7 +55,7 @@ const getSiteUrl = () => {
 export const setPageSeo = (title: string, description: string, options: SeoOptions = {}) => {
   const siteUrl = getSiteUrl();
   const canonicalUrl = options.canonicalPath ? `${siteUrl}${options.canonicalPath}` : window.location.href;
-  const ogImage = `${siteUrl}/favicon.ico`;
+  const ogImage = `${siteUrl}/og-image.png`;
   const robots = options.robots ?? "index, follow";
   const ogType = options.ogType ?? "website";
 

@@ -122,7 +122,7 @@ export default function WhyChooseUs() {
                        border-primary text-primary font-semibold rounded-xl px-8 py-3.5 
                        text-sm min-h-[44px] hover:bg-primary/5 transition-colors"
           >
-            View our fleet
+            Explore fleet
           </a>
         </div>
 
