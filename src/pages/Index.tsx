@@ -308,7 +308,7 @@ const Index = () => {
                     <img
                       src={v.image}
                       alt={v.name}
-                      className={`w-full h-full transition-transform duration-500 ${v.imageClassName ?? "object-cover group-hover:scale-105"}`}
+                      className={`w-full h-full transition-transform duration-500 ${v.imageClassName ?? "object-contain bg-white p-2 group-hover:scale-105"}`}
                       loading="lazy"
                       width={800}
                       height={600}

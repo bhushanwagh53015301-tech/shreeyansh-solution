@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ArrowRight, Truck, Shield, MapPin } from "lucide-react";
+import { ArrowRight, Truck, Shield, Phone } from "lucide-react";
 import { vehicles } from "@/data/vehicles";
 import { setPageSeo } from "@/lib/seo";
 
@@ -70,7 +70,7 @@ const VehicleDetails = () => {
             <img
               src={vehicle.image}
               alt={vehicle.name}
-              className={`w-full rounded-2xl shadow-xl ${vehicle.detailImageClassName ?? "object-cover"}`}
+              className={`w-full rounded-2xl shadow-xl ${vehicle.detailImageClassName ?? "object-contain bg-white p-4"}`}
               width={1200}
               height={700}
               onError={(event) => {
