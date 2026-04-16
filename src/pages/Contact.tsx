@@ -7,6 +7,8 @@ import { vehicles } from "@/data/vehicles";
 import { products } from "@/data/products";
 
 const CONTACT_EMAIL = "shreeyanshlogitechsolutions@gmail.com";
+const WEB3FORMS_API_URL = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 const NAME_REGEX = /^[A-Za-z ]+$/;
 const PHONE_REGEX = /^[6-9]\d{9}$/;
 
@@ -111,17 +113,25 @@ const Contact = () => {
     e.preventDefault();
     setSubmitError("");
     if (!validateForm()) return;
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setSubmitError("Form is not configured. Please contact support or call directly.");
+      return;
+    }
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`https://formsubmit.co/ajax/${CONTACT_EMAIL}`, {
+      const response = await fetch(WEB3FORMS_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          _subject: "Truck Transport Quote Request",
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: "Truck Transport Quote Request",
+          from_name: "Shreeyansh Website",
+          email: CONTACT_EMAIL,
+          replyto: CONTACT_EMAIL,
           name: fullName,
           phone,
           vehicleType,
@@ -134,8 +144,8 @@ const Contact = () => {
       }
 
       const result = await response.json();
-      if (result.success !== "true") {
-        throw new Error("Form service did not accept the enquiry");
+      if (!result.success) {
+        throw new Error(result.message || "Form service did not accept the enquiry");
       }
 
       setSubmitted(true);
@@ -144,8 +154,9 @@ const Contact = () => {
       setVehicleType("");
       setCargoRouteDetails("");
       setErrors({});
-    } catch {
-      setSubmitError("Submission failed. Please call or WhatsApp us directly.");
+    } catch (error) {
+      const message = error instanceof Error ? error.message : "Submission failed";
+      setSubmitError(`${message}. Please call or WhatsApp us directly.`);
     } finally {
       setIsSubmitting(false);
     }
