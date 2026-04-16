@@ -311,7 +311,7 @@ const About = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: Shield, title: "Quality Assurance", desc: "ISO certification & industry standards" },
-                { icon: TrendingUp, title: "Growth Target", desc: "300+ vehicles by 2027" },
+                { icon: TrendingUp, title: "Growth Target", desc: "300+ market-attached vehicles by 2027" },
                 { icon: Users, title: "Customer Satisfaction", desc: "4.9/5 rating achievement" },
                 { icon: Target, title: "Market Expansion", desc: "Pan-India coverage expansion" },
               ].map((goal, i) => {

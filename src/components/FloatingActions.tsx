@@ -22,13 +22,13 @@ const FloatingActions = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-3 md:bottom-4 md:right-4 z-[60] flex flex-col gap-2.5 md:gap-3 pb-[env(safe-area-inset-bottom)]">
+    <div className="fixed bottom-24 right-3 md:bottom-4 md:right-4 z-[60] flex flex-col gap-2.5 md:gap-3 pb-[env(safe-area-inset-bottom)]">
       <a
         href="https://wa.me/919273234588?text=Hello%20Shreeyansh%20Logitech%20Solutions%2C%20I%20would%20like%20to%20book%20a%20truck.%20Please%20share%20availability%20and%20quote."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="h-11 w-11 md:h-12 md:w-12 rounded-full bg-[#25D366] text-white shadow-lg hover:brightness-95 transition-all flex items-center justify-center"
+        className="hidden md:flex h-11 w-11 md:h-12 md:w-12 rounded-full bg-[#25D366] text-white shadow-lg hover:brightness-95 transition-all items-center justify-center"
       >
         <svg viewBox="0 0 16 16" className="h-5 w-5 md:h-6 md:w-6 fill-current" aria-hidden="true">
           <path d="M13.601 2.326A7.854 7.854 0 0 0 8 0C3.582 0 0 3.582 0 8c0 1.414.37 2.741 1.015 3.89L0 16l4.214-1.105A7.949 7.949 0 0 0 8 16h.003C12.418 16 16 12.418 16 8a7.948 7.948 0 0 0-2.399-5.674zM8.003 14.5a6.5 6.5 0 0 1-3.316-.908l-.237-.142-2.5.655.667-2.438-.154-.25a6.5 6.5 0 1 1 5.54 3.083z" />

@@ -224,29 +224,6 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="py-10 md:py-16 lg:py-20">
-        <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <div className="flex gap-4 mb-6">
-              {[Truck, MapPin, Package].map((Icon, i) => (
-                <div key={i} className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center">
-                  <Icon className="h-7 w-7 text-secondary" />
-                </div>
-              ))}
-            </div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-4">
-              Full Truck Load <span className="text-secondary">Transportation</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              We specialize in FTL transportation providing dedicated vehicles for your cargo. With our wide range of vehicles from Pick Up to 40ft Trailers, we handle every type of shipment with care and efficiency.
-            </p>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-            <img src={fleetImg} alt="Fleet" className="rounded-2xl shadow-xl w-full" loading="lazy" width={1200} height={600} />
-          </motion.div>
-        </div>
-      </section>
-
       <section className="py-10 md:py-16 lg:py-20 bg-card">
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
@@ -363,7 +340,7 @@ const Services = () => {
                   <MapPin className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-heading font-bold text-foreground mb-1">Maharashtra</h4>
-                    <p className="text-sm text-muted-foreground">Pune, Mumbai, Nagpur, Aurangabad, Nashik, MIDC areas, and all major industrial zones.</p>
+                    <p className="text-sm text-muted-foreground">Pune, Mumbai, Nagpur, Aurangabad, Nashik, Solapur, Kolhapur, Sangli, Ratnagiri, Chiplun, Kokan area, MIDC areas, and all major industrial zones.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -377,7 +354,7 @@ const Services = () => {
                   <MapPin className="h-6 w-6 text-secondary flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-heading font-bold text-foreground mb-1">Gujarat</h4>
-                    <p className="text-sm text-muted-foreground">Vapi, Vadodara, and select industrial areas with interstate permits and experienced drivers.</p>
+                    <p className="text-sm text-muted-foreground">Vapi, Vadodara, Ahmedabad, and select industrial areas with interstate permits and experienced drivers.</p>
                   </div>
                 </div>
               </div>
@@ -405,6 +382,29 @@ const Services = () => {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="py-10 md:py-16 lg:py-20">
+        <div className="container grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <div className="flex gap-4 mb-6">
+              {[Truck, MapPin, Package].map((Icon, i) => (
+                <div key={i} className="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center">
+                  <Icon className="h-7 w-7 text-secondary" />
+                </div>
+              ))}
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-4">
+              Full Truck Load <span className="text-secondary">Transportation</span>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              We specialize in FTL transportation providing dedicated vehicles for your cargo. With our wide range of vehicles from Pick Up to 40ft Trailers, we handle every type of shipment with care and efficiency.
+            </p>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+            <img src={fleetImg} alt="Fleet" className="rounded-2xl shadow-xl w-full" loading="lazy" width={1200} height={600} />
+          </motion.div>
         </div>
       </section>
     </div>

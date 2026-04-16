@@ -18,9 +18,9 @@ const features = [
   },
   {
     icon: ShieldCheck,
-    title: "Fully insured goods",
+    title: "Safe goods handling",
     description:
-      "All shipments covered with transit insurance. Your cargo is protected from loading to delivery.",
+      "Every shipment is handled with strict loading and transit safety protocols to reduce risk from pickup to delivery.",
     color: "bg-secondary/10 text-secondary",
   },
   {

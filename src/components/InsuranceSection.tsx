@@ -4,8 +4,8 @@ import { Shield, Star, Award, Clock } from "lucide-react";
 const certifications = [
   {
     icon: Shield,
-    title: "Full Insurance Coverage",
-    desc: "All vehicles carry comprehensive transit insurance. Cargo is protected from loading to delivery.",
+    title: "Safe Handling Standards",
+    desc: "Every load follows standard loading checks, secure lashing, and monitored movement from pickup to delivery.",
     color: "bg-blue-100 text-blue-700",
   },
   {
@@ -42,7 +42,7 @@ export default function InsuranceSection() {
             Trust & <span className="text-secondary">Safety</span>
           </h2>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-            Industry certifications and guarantees that protect your cargo every step of the way.
+            Practical safety processes and certified operations for reliable cargo movement.
           </p>
         </motion.div>
 

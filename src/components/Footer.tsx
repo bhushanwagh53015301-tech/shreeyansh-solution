@@ -3,8 +3,8 @@ import { Truck, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground overflow-hidden">
-    <div className="container py-12 md:py-16">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
+    <div className="container pt-10 pb-6 md:pt-12 md:pb-8">
+      <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.55fr_1.25fr] gap-8 md:gap-6">
         <div className="min-w-0">
           <div className="flex items-center gap-2 mb-4">
             <Truck className="h-8 w-8 text-secondary shrink-0" />
@@ -15,6 +15,9 @@ const Footer = () => (
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
             Your trusted partner for full truck load transportation across Maharashtra, Goa and Gujarat. 100+ vehicles at your service.
+          </p>
+          <p className="text-primary-foreground/60 text-sm leading-relaxed mt-3">
+            Truck rental in Pune for FTL logistics, local MIDC dispatch, intercity transport, and interstate goods movement across Maharashtra, Goa, and Gujarat.
           </p>
         </div>
 
@@ -59,7 +62,7 @@ const Footer = () => (
         </div>
       </div>
 
-      <div className="border-t border-primary-foreground/20 mt-10 md:mt-12 pt-7 md:pt-8 text-center text-sm text-primary-foreground/50">
+      <div className="border-t border-primary-foreground/20 mt-8 md:mt-10 pt-5 md:pt-6 text-center text-sm text-primary-foreground/50">
         {"\u00A9"} {new Date().getFullYear()} Shreeyansh Logitech Solutions. All rights reserved.
       </div>
     </div>
