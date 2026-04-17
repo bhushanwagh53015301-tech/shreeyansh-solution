@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Phone, Truck } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -29,11 +29,12 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-border/70 bg-card/95 backdrop-blur-md shadow-sm">
       <div className="container flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2">
-          <Truck className="h-8 w-8 text-secondary" />
-          <div>
-            <span className="font-heading font-bold text-lg text-primary leading-none block">Shreeyansh</span>
-            <span className="font-heading text-xs text-secondary font-semibold tracking-wider">LOGITECH SOLUTIONS</span>
-          </div>
+          <img
+            src="/SHREEYANSH.jpg"
+            alt="Shreeyansh Logitech Solutions"
+            className="h-10 md:h-12 w-auto object-contain"
+            loading="eager"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
