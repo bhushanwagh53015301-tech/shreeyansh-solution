@@ -304,7 +304,7 @@ const Contact = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="min-w-0" className="min-w-0">
+                  <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Full Name</label>
                     <input
                       type="text"
@@ -319,7 +319,7 @@ const Contact = () => {
                     />
                     {errors.fullName ? <p className="text-sm text-destructive mt-1.5">{errors.fullName}</p> : null}
                   </div>
-                  <div className="min-w-0" className="min-w-0">
+                  <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Phone Number</label>
                     <input
                       type="tel"
@@ -338,7 +338,7 @@ const Contact = () => {
                     />
                     {errors.phone ? <p className="text-sm text-destructive mt-1.5">{errors.phone}</p> : null}
                   </div>
-                  <div className="min-w-0" className="min-w-0">
+                  <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Vehicle / Product Needed</label>
                     <select
                       required
@@ -367,7 +367,7 @@ const Contact = () => {
                     </select>
                     {errors.vehicleType ? <p className="text-sm text-destructive mt-1.5">{errors.vehicleType}</p> : null}
                   </div>
-                  <div className="min-w-0" className="min-w-0">
+                  <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Message</label>
                     <textarea
                       rows={4}
