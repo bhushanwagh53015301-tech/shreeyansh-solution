@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Truck, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground overflow-hidden">
@@ -7,11 +7,12 @@ const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.55fr_1.25fr] gap-8 md:gap-6">
         <div className="min-w-0">
           <div className="flex items-center gap-2 mb-4">
-            <Truck className="h-8 w-8 text-secondary shrink-0" />
-            <div className="min-w-0">
-              <span className="font-heading font-bold text-lg leading-none block">Shreeyansh</span>
-              <span className="font-heading text-xs text-secondary font-semibold tracking-wider">LOGITECH SOLUTIONS</span>
-            </div>
+            <img
+              src="/SHREEYANSH.jpg"
+              alt="Shreeyansh Logitech Solutions"
+              className="h-12 w-auto object-contain rounded-md bg-white/95 p-1"
+              loading="lazy"
+            />
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
             Your trusted partner for full truck load transportation across Maharashtra, Goa and Gujarat. 100+ vehicles at your service.

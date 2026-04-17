@@ -192,14 +192,14 @@ const Services = () => {
           >
             <div className="flex flex-wrap items-center gap-2.5 mb-4">
               <span className="rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-semibold tracking-wide">
-                Origin: Chakan
+                Ex. Chakan/Pune
               </span>
               <span className="rounded-full bg-secondary/10 text-secondary px-3 py-1 text-xs font-semibold tracking-wide">
                 28 Destination Points
               </span>
             </div>
             <h3 className="font-heading text-xl md:text-2xl font-black text-primary mb-2">
-              Destination Network from <span className="text-secondary">Chakan</span>
+              Ex. <span className="text-secondary">Chakan/Pune</span> to various destination
             </h3>
             <p className="text-sm text-muted-foreground mb-6">
               Planned FTL movement across major commercial and industrial corridors in Maharashtra.
