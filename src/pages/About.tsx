@@ -131,7 +131,7 @@ const About = () => {
             <img
               src={directorImg}
               alt="Ravindra S. Padwal - Director"
-              className="w-full md:w-[38%] lg:w-[34%] h-72 md:h-[420px] lg:h-[460px] object-cover md:self-start"
+              className="w-full md:w-[38%] lg:w-[34%] h-64 sm:h-72 md:h-[420px] lg:h-[460px] object-cover object-[center_22%] md:object-top md:self-start"
               loading="lazy"
               width={600}
               height={600}
