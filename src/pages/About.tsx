@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 import { Award, Target, Users, Briefcase, Eye, Flag, TrendingUp, Shield } from "lucide-react";
-import directorImg from "@/assets/director-portrait.jpg";
+import directorImg from "@/assets/ravindra-padwal.jpeg";
 import { setPageSeo } from "@/lib/seo";
 
 const fadeUp = {
@@ -131,7 +131,7 @@ const About = () => {
             <img
               src={directorImg}
               alt="Ravindra S. Padwal - Director"
-              className="w-full md:w-[38%] lg:w-[34%] h-80 md:h-auto object-cover"
+              className="w-full md:w-[38%] lg:w-[34%] h-72 md:h-[420px] lg:h-[460px] object-cover md:self-start"
               loading="lazy"
               width={600}
               height={600}
