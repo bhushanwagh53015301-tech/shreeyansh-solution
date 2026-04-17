@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import GA4PageTracker from "@/components/GA4PageTracker";
 import FloatingActions from "@/components/FloatingActions";
 import MobileBottomCTA from "@/components/MobileBottomCTA";
 import Index from "./pages/Index.tsx";
@@ -25,6 +26,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <GA4PageTracker />
         <ScrollToTop />
         <Navbar />
         <main className="pb-20 md:pb-0">

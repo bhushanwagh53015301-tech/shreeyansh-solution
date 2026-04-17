@@ -39,9 +39,9 @@ const features = [
   },
   {
     icon: Truck,
-    title: "100+ vehicle fleet",
+    title: "1109 vehicles provider",
     description:
-      "Pickup vans to 40ft trailers — the right truck for every load size, available when you need it.",
+      "Trusted Pune to Maharashtra line partner with 1109 vehicles, from pickup vans to 40ft trailers for every load size.",
     color: "bg-amber-100 text-amber-700",
   },
   {
@@ -68,8 +68,7 @@ export default function WhyChooseUs() {
             <br className="hidden sm:block" /> every single delivery
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto leading-relaxed">
-            From Pickup vans to 40ft trailers — we move goods across Maharashtra,
-            Goa &amp; Gujarat with reliability built into every trip.
+            Pune to Maharashtra line 1109 vehicles provider for reliable logistics across Maharashtra, Goa &amp; Gujarat on every trip.
           </p>
         </div>
 
@@ -130,3 +129,4 @@ export default function WhyChooseUs() {
     </section>
   );
 }
+

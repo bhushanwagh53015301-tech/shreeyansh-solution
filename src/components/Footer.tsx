@@ -15,10 +15,13 @@ const Footer = () => (
             />
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
-            Your trusted partner for full truck load transportation across Maharashtra, Goa and Gujarat. 100+ vehicles at your service.
+            Your trusted partner for full truck load transportation across Maharashtra, Goa and Gujarat. 1109 vehicles at your service.
           </p>
           <p className="text-primary-foreground/60 text-sm leading-relaxed mt-3">
             Truck rental in Pune for FTL logistics, local MIDC dispatch, intercity transport, and interstate goods movement across Maharashtra, Goa, and Gujarat.
+          </p>
+          <p className="text-primary-foreground/60 text-sm leading-relaxed mt-3">
+            Pune to Maharashtra line 1109 vehicles provider for dependable, on-time cargo movement.
           </p>
         </div>
 

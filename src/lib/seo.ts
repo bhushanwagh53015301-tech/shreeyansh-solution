@@ -28,6 +28,8 @@ type SeoOptions = {
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
+const SEO_KEYWORD_PHRASE = "Pune to Maharashtra line 1109 vehicles provider";
+
 const upsertStructuredData = (data?: SeoOptions["structuredData"]) => {
   const selector = 'script[data-seo="structured-data"]';
   const existing = document.head.querySelector<HTMLScriptElement>(selector);
@@ -58,21 +60,29 @@ export const setPageSeo = (title: string, description: string, options: SeoOptio
   const ogImage = `${siteUrl}/og-image.png`;
   const robots = options.robots ?? "index, follow";
   const ogType = options.ogType ?? "website";
+  const seoDescription = description.toLowerCase().includes(SEO_KEYWORD_PHRASE.toLowerCase())
+    ? description
+    : `${description} ${SEO_KEYWORD_PHRASE}.`;
 
   document.title = title;
 
-  upsertMetaTag('meta[name="description"]', { name: "description" }, description);
+  upsertMetaTag('meta[name="description"]', { name: "description" }, seoDescription);
+  upsertMetaTag(
+    'meta[name="keywords"]',
+    { name: "keywords" },
+    `${SEO_KEYWORD_PHRASE}, truck rental pune, maharashtra transport, full truck load logistics`,
+  );
   upsertMetaTag('meta[name="robots"]', { name: "robots" }, robots);
   upsertMetaTag('meta[property="og:type"]', { property: "og:type" }, ogType);
   upsertMetaTag('meta[property="og:url"]', { property: "og:url" }, canonicalUrl);
   upsertMetaTag('meta[property="og:site_name"]', { property: "og:site_name" }, "Shreeyansh Logitech Solutions");
   upsertMetaTag('meta[property="og:title"]', { property: "og:title" }, title);
-  upsertMetaTag('meta[property="og:description"]', { property: "og:description" }, description);
+  upsertMetaTag('meta[property="og:description"]', { property: "og:description" }, seoDescription);
   upsertMetaTag('meta[property="og:image"]', { property: "og:image" }, ogImage);
   upsertMetaTag('meta[name="twitter:card"]', { name: "twitter:card" }, "summary_large_image");
   upsertMetaTag('meta[name="twitter:site"]', { name: "twitter:site" }, "@shreeyanshlogitech");
   upsertMetaTag('meta[name="twitter:title"]', { name: "twitter:title" }, title);
-  upsertMetaTag('meta[name="twitter:description"]', { name: "twitter:description" }, description);
+  upsertMetaTag('meta[name="twitter:description"]', { name: "twitter:description" }, seoDescription);
   upsertMetaTag('meta[name="twitter:image"]', { name: "twitter:image" }, ogImage);
   upsertLinkTag('link[rel="canonical"]', { rel: "canonical", href: canonicalUrl });
   upsertStructuredData(options.structuredData);

@@ -278,7 +278,7 @@ const Contact = () => {
             <div className="mt-8 rounded-xl overflow-hidden shadow-md">
               <iframe
                 title="Office Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3777.8!2d73.86!3d18.76!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDQ1JzM2LjAiTiA3M8KwNTEnMzYuMCJF!5e0!3m2!1sen!2sin!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3777.3259073663653!2d73.83706117519817!3d18.783623782361644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTjCsDQ3JzAxLjEiTiA3M8KwNTAnMjIuNyJF!5e0!3m2!1sen!2sin!4v1776426192255!5m2!1sen!2sin"
                 width="100%"
                 height="250"
                 style={{ border: 0 }}
