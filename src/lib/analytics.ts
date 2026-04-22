@@ -1,4 +1,4 @@
-const measurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID?.trim();
+const measurementId = import.meta.env.VITE_GA4_MEASUREMENT_ID?.trim() || "G-XWYYF404YC";
 let initialized = false;
 
 type GtagCommand = "js" | "config" | "event";
@@ -14,6 +14,11 @@ export const isGAEnabled = () => Boolean(measurementId);
 
 export const initGA4 = () => {
   if (!measurementId || initialized || typeof window === "undefined") {
+    return;
+  }
+
+  if (typeof window.gtag === "function") {
+    initialized = true;
     return;
   }
 
