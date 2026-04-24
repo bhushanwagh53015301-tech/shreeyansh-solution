@@ -60,19 +60,19 @@ const blogPosts = [
 const faqs = [
   {
     question: "Which areas do you serve?",
-    answer: "We provide transport support in Maharashtra, Goa, and selected routes in Gujarat.",
+    answer: "We provide truck booking, goods transport service, and logistics support in Pune, across Maharashtra, Goa, Gujarat, and selected India routes.",
   },
   {
-    question: "Can I book urgent same-day vehicle support?",
-    answer: "Yes, subject to fleet availability and route feasibility at booking time.",
+    question: "Can I book a truck online or request same-day truck booking?",
+    answer: "Yes. You can contact Shreeyansh Logitech Solutions for online truck booking, urgent load truck booking, and same day truck booking based on vehicle availability and route feasibility.",
   },
   {
-    question: "Do you provide heavy vehicles like trailer and JCB support?",
-    answer: "Yes, we offer trailers, JCB, ODC vehicles.",
+    question: "Do you provide mini truck, tempo, trailer, and heavy cargo transport services?",
+    answer: "Yes, we provide mini truck booking, tempo transport service, trailer transport, JCB movement, and industrial goods transport service for business and project cargo.",
   },
   {
-    question: "How can I get a quote?",
-    answer: "You can call directly or submit your requirement from the contact page for a quick response.",
+    question: "How can I get a quote for transport services near me?",
+    answer: "You can call directly or submit your requirement from the contact page to get a quick quote for affordable truck booking, intercity truck transport India routes, and reliable transport service support.",
   },
 ];
 
@@ -125,27 +125,44 @@ const Index = () => {
 
   useEffect(() => {
     setPageSeo(
-      "Truck Rental in Pune | FTL Transport in Maharashtra, Goa, Gujarat",
-      "Shreeyansh Logitech Solutions offers full truck load transportation from Pune across Maharashtra, Goa, and Gujarat with all major truck types.",
+      "Truck Rental, Truck Booking & Logistics in Pune | Shreeyansh Logistics",
+      "Need a truck on rent in Pune? Shreeyansh Logitech Solutions offers truck rental, mini truck booking, tempo on rent, pickup truck hire, and intercity goods transport across Maharashtra, Goa, and Gujarat.",
       {
         canonicalPath: "/",
-        structuredData: {
-          "@context": "https://schema.org",
-          "@type": "LocalBusiness",
-          name: "Shreeyansh Logitech Solutions",
-          url: window.location.origin,
-          areaServed: ["Maharashtra", "Goa", "Gujarat"],
-          telephone: ["+91-9273234588", "+91-7744897661"],
-          email: "shreeyanshlogitechsolutions@gmail.com",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Swarajya Residency, Shop No. 1, Chakan MIDC Phase-V, Biradawadi",
-            addressLocality: "Taluka-Khed",
-            addressRegion: "Maharashtra",
-            postalCode: "410501",
-            addressCountry: "IN",
+        structuredData: [
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            name: "Shreeyansh Logitech Solutions",
+            alternateName: ["Shreeyansh Logistics", "Shreyansh Logistics", "Shriyansh Logistics", "Shreeyansh Transport"],
+            url: window.location.origin,
+            description:
+              "Truck rental and truck booking company in Pune offering mini truck, pickup, tempo, and full truck load transport for local and intercity goods movement.",
+            areaServed: ["Pune", "Mumbai", "Maharashtra", "Goa", "Gujarat", "India"],
+            telephone: ["+91-9273234588", "+91-7744897661"],
+            email: "shreeyanshlogitechsolutions@gmail.com",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Swarajya Residency, Shop No. 1, Chakan MIDC Phase-V, Biradawadi",
+              addressLocality: "Taluka-Khed",
+              addressRegion: "Maharashtra",
+              postalCode: "410501",
+              addressCountry: "IN",
+            },
           },
-        },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          },
+        ],
       }
     );
   }, []);
@@ -194,14 +211,14 @@ const Index = () => {
         <div className="container relative z-10 py-16 md:py-32">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-2xl">
             <span className="inline-block bg-secondary text-secondary-foreground px-4 py-1.5 rounded-full font-heading text-xs font-bold tracking-wider mb-6">
-              #1 TRUSTED TRUCK RENTAL IN MAHARASHTRA
+              TRUCK RENTAL, MINI TRUCK BOOKING & GOODS TRANSPORT IN PUNE
             </span>
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground leading-tight mb-5 md:mb-6">
-              Full Truck Load <br />
-              <span className="text-secondary">Transportation</span> Solutions
+              Truck On Rent in Pune <br />
+              & <span className="text-secondary">Fast Goods Transport</span>
             </h1>
             <p className="text-primary-foreground/85 text-base sm:text-lg md:text-xl mb-7 md:mb-8 leading-relaxed">
-              Rent all vehicle types from Pick Up to 40ft Trailer. Serving selected routes in Maharashtra, Goa, and Gujarat.
+              Book a mini truck, pickup truck, tempo, or full-load truck for local and intercity delivery. We help businesses find the right vehicle on rent for Pune, Maharashtra, Goa, Gujarat, and nearby routes.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
               <Link
@@ -237,10 +254,29 @@ const Index = () => {
         <div className="container">
           <div className="rounded-2xl border-2 border-secondary/30 bg-secondary/10 px-4 md:px-6 py-4 md:py-5 text-center">
             <p className="font-heading text-base sm:text-lg md:text-2xl font-black text-primary leading-snug">
-              We Provide <span className="text-secondary">All Types of Full Truckload Vehicles</span> in
-              <span className="text-secondary"> Maharashtra, Goa, and Gujarat</span> (Selected Areas).
+              We provide <span className="text-secondary">truck rental in Pune, mini truck on rent, tempo on rent, and full truck load vehicles</span> across
+              <span className="text-secondary"> Maharashtra, Mumbai, Goa, Gujarat, and selected intercity routes</span>.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-card py-10 md:py-14">
+        <div className="container max-w-5xl">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary text-center mb-5">
+              Search the Way Customers <span className="text-secondary">Actually Search</span>
+            </h2>
+            <p className="text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto">
+              People usually do not search only by company name. They search phrases like truck on rent in Pune, mini truck booking near me, pickup truck rental, tempo on rent, lorry booking service, or goods transport service near me.
+            </p>
+            <p className="text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto mt-4">
+              Shreeyansh Logistics, also searched as Shreyansh Logistics, Shriyansh Logistics, Shreeyansh Logitech Solutions, and Shreeyansh Transport, is positioned for those buyer-intent searches with rental options for mini trucks, pickups, tempos, and full truck load transport.
+            </p>
+            <p className="text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto mt-4">
+              If someone wants to rent a truck for factory dispatch, trading material, industrial goods, or regular business transport, this website now speaks the same language they are likely to type into Google.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -452,7 +488,7 @@ const Index = () => {
                 A Fleet for <span className="text-secondary">Every Need</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                From Pick Up to 40ft Trailer, we support local, intercity, and interstate logistics with dependable vehicle availability.
+                From mini truck rental and pickup truck hire to larger trailer movement, we support local, intercity, interstate, and door-to-door goods transport with dependable vehicle availability.
               </p>
               <Link
                 to="/services"
@@ -482,7 +518,7 @@ const Index = () => {
               Need a Truck Quickly?
             </h2>
             <p className="text-primary-foreground/85 text-base sm:text-lg max-w-2xl mx-auto mb-7">
-              Get a fast quote for local, intercity, and interstate full truckload transport.
+              Get a fast quote for truck rental, same-day truck booking, mini truck on rent, tempo on rent, and reliable goods transport support.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
               <Link to="/contact" className="min-h-11 inline-flex items-center justify-center bg-secondary text-secondary-foreground px-6 md:px-8 py-3.5 rounded-lg font-heading font-bold text-sm hover:opacity-90 transition-opacity">

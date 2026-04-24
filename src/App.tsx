@@ -14,6 +14,7 @@ import About from "./pages/About.tsx";
 import Services from "./pages/Services.tsx";
 import Products from "./pages/Products.tsx";
 import Contact from "./pages/Contact.tsx";
+import Pricing from "./pages/Pricing.tsx";
 import VehicleDetails from "./pages/VehicleDetails.tsx";
 import ProductDetails from "./pages/ProductDetails.tsx";
 import NotFound from "./pages/NotFound.tsx";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/products" element={<Products />} />
             <Route path="/products/:slug" element={<ProductDetails />} />
             <Route path="/vehicles/:slug" element={<VehicleDetails />} />

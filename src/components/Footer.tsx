@@ -15,13 +15,13 @@ const Footer = () => (
             />
           </div>
           <p className="text-primary-foreground/70 text-sm leading-relaxed">
-            Your trusted partner for full truck load transportation across Maharashtra, Goa and Gujarat. 1109 vehicles at your service.
+            Your trusted partner for truck rental, truck booking, mini truck on rent, tempo on rent, and full truck load transportation across Pune, Maharashtra, Mumbai, Goa, and Gujarat.
           </p>
           <p className="text-primary-foreground/60 text-sm leading-relaxed mt-3">
-            Truck rental in Pune for FTL logistics, local MIDC dispatch, intercity transport, and interstate goods movement across Maharashtra, Goa, and Gujarat.
+            Shreeyansh Logistics, Shreyansh Logistics, Shriyansh Logistics, and Shreeyansh Transport are trusted for truck on rent in Pune, pickup truck rental, mini truck booking near me, and intercity goods transport needs.
           </p>
           <p className="text-primary-foreground/60 text-sm leading-relaxed mt-3">
-            Pune to Maharashtra line 1109 vehicles provider for dependable, on-time cargo movement.
+            We support factories, traders, distributors, and business customers with cargo movement, load planning, and door-to-door transport coordination.
           </p>
         </div>
 

@@ -10,24 +10,43 @@ import { products } from "@/data/products";
 
 const services = [
   {
-    title: "Local FTL Transportation",
-    desc: "Full truck load services within Pune and nearby areas with same-day pickup and delivery options.",
-    features: ["Same-day pickup", "Door-to-door delivery", "GPS tracked vehicles"],
+    title: "Truck Rental in Pune",
+    desc: "Dedicated truck rental service for Pune businesses that need quick vehicle availability for factory dispatch, goods movement, and regular transport work.",
+    features: ["Truck on rent for local movement", "Same-day pickup options", "Door-to-door coordination"],
   },
   {
-    title: "All Maharashtra FTL",
-    desc: "Complete coverage across Maharashtra with dedicated routes to all major cities and industrial areas.",
-    features: ["All major cities covered", "MIDC area specialization", "Regular scheduled routes"],
+    title: "Mini Truck and Pickup Truck Rental",
+    desc: "Mini truck on rent and pickup truck rental support for lighter loads, urgent dispatches, and short-distance commercial deliveries.",
+    features: ["Mini truck booking near me", "Pickup truck rental for business", "Flexible route planning"],
   },
   {
-    title: "Goa Transportation",
-    desc: "Reliable cargo transportation to and from Goa with regular scheduled services.",
-    features: ["Weekly scheduled routes", "Safe cargo handling", "Competitive rates"],
+    title: "Tempo on Rent and Goods Transport",
+    desc: "Tempo transport service for practical goods movement when you need a fast, affordable option for local and intercity routes.",
+    features: ["Tempo on rent in Pune", "Goods transport for daily loads", "Commercial cargo support"],
   },
   {
-    title: "Gujarat Routes",
-    desc: "Serving select areas in Gujarat for interstate cargo transportation needs.",
-    features: ["Interstate permits", "Experienced drivers", "Timely delivery"],
+    title: "Intercity and FTL Transport",
+    desc: "Full truck load transport across Maharashtra, Goa, and selected Gujarat routes for larger shipments and business cargo movement.",
+    features: ["Intercity truck booking", "FTL route support", "Timely interstate delivery"],
+  },
+];
+
+const searchIntentBlocks = [
+  {
+    title: "Best Truck Rentals in Pune",
+    desc: "If someone searches best truck rentals in Pune, they usually want a reliable company with the right vehicle options, quick response, and practical pricing. This services page is now written to match that local buying intent.",
+  },
+  {
+    title: "Truck on Rent in Pune",
+    desc: "When customers search truck on rent in Pune, truck rental Pune, or truck booking Pune, they are usually looking for quick availability, clear pricing, and dependable coordination. This page now speaks to that exact need.",
+  },
+  {
+    title: "Mini Truck on Rent Near Me",
+    desc: "For small commercial loads and urgent dispatches, people often search mini truck on rent near me, pickup truck rental, or small truck booking. We support those use cases with practical vehicle matching.",
+  },
+  {
+    title: "Tempo on Rent for Goods Transport",
+    desc: "Many buyers search tempo on rent, lorry booking service, or goods transport near me when they need flexible business transport. We help with local and intercity goods movement using the right vehicle type.",
   },
 ];
 
@@ -66,19 +85,23 @@ const fadeUp = {
 const Services = () => {
   useEffect(() => {
     setPageSeo(
-      "Truck Transport Services | FTL in Maharashtra, Goa, Gujarat",
-      "Explore full truck load transport services from Shreeyansh Logitech Solutions including local FTL, Maharashtra routes, Goa transportation, and selected Gujarat routes.",
+      "Best Truck Rentals in Pune | Mini Truck, Tempo & FTL Booking",
+      "Looking for the best truck rentals in Pune? Shreeyansh Logitech Solutions provides truck rental, mini truck on rent, pickup truck rental, tempo on rent, and full truck load transport across Pune and nearby routes.",
       {
         canonicalPath: "/services",
+        keywords:
+          "best truck rentals in pune, truck rental pune, truck on rent pune, mini truck on rent near me, pickup truck rental pune, tempo on rent pune, truck booking pune, full truck load service pune, intercity truck transport, shreeyansh logistics services",
         structuredData: {
           "@context": "https://schema.org",
           "@type": "Service",
-          name: "Full Truck Load Transportation Services",
+          name: "Best Truck Rentals in Pune",
           provider: {
             "@type": "Organization",
             name: "Shreeyansh Logitech Solutions",
           },
-          areaServed: ["Maharashtra", "Goa", "Gujarat"],
+          description:
+            "Truck rental, mini truck booking, pickup truck hire, tempo on rent, and full truck load transportation services in Pune and western India.",
+          areaServed: ["Pune", "Maharashtra", "Goa", "Gujarat"],
         },
       }
     );
@@ -90,12 +113,43 @@ const Services = () => {
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary-foreground mb-4">
-              Our <span className="text-secondary">Services</span>
+              Best Truck Rentals in Pune <span className="text-secondary">& Transport Services</span>
             </h1>
             <p className="text-primary-foreground/80 max-w-2xl text-base sm:text-lg md:text-xl">
-              Comprehensive FTL transportation services across Maharashtra, Goa and Gujarat.
+              Looking for the best truck rentals in Pune? Get truck on rent, mini truck booking, pickup truck rental, tempo on rent, and full truck load support for Pune and surrounding business routes.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      <section className="py-10 md:py-16 bg-card">
+        <div className="container">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center max-w-4xl mx-auto mb-10">
+            <p className="font-heading text-sm font-black tracking-widest text-secondary mb-2">HIGH-INTENT SEARCH TERMS</p>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-4">
+              Pune Truck Rental Services Built Around <span className="text-secondary">How Customers Search</span>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              People searching for transport usually type best truck rentals in Pune, truck rental Pune, mini truck on rent near me, tempo on rent, pickup truck rental, or truck booking Pune. We have aligned this services page around those real rental needs while keeping the content useful and natural.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {searchIntentBlocks.map((block, i) => (
+              <motion.div
+                key={block.title}
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                className="rounded-2xl border border-border bg-background p-6 shadow-sm"
+              >
+                <h3 className="font-heading text-xl font-black text-primary mb-3">{block.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{block.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -166,11 +220,11 @@ const Services = () => {
                   Service Coverage
                 </p>
                 <h2 className="font-heading text-2xl font-black leading-tight md:text-4xl">
-                  We Provide <span className="text-secondary">All Types of Full Truck Vehicles</span> in
+                  We Provide <span className="text-secondary">All Types of Rental Trucks</span> in
                   <span className="text-secondary"> Maharashtra, Goa and Gujarat</span> (Selected Areas).
                 </h2>
                 <p className="mt-4 max-w-xl text-sm text-primary-foreground/85 md:text-base">
-                  Dedicated vehicles, trusted coordination, and practical route support for industrial and commercial cargo movement.
+                  Dedicated vehicles, trusted coordination, and practical route support for truck rental, goods transport, and industrial cargo movement.
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2.5">
                   {["Maharashtra", "Goa", "Gujarat (Some Areas)"].map((area) => (
@@ -202,7 +256,7 @@ const Services = () => {
               <span className="text-secondary">Chakan/Pune</span> to various destination
             </h3>
             <p className="text-sm text-muted-foreground mb-6">
-              Planned FTL movement across major commercial and industrial corridors in Maharashtra.
+              Planned truck booking and FTL movement across major commercial and industrial corridors in Maharashtra.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -230,6 +284,9 @@ const Services = () => {
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary">
               Vehicles Available <span className="text-secondary">On Rent</span>
             </h2>
+            <p className="text-muted-foreground mt-3 max-w-3xl mx-auto">
+              Browse vehicle options for mini truck rental, pickup truck hire, medium truck movement, and full truck load cargo transport.
+            </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -314,6 +371,11 @@ const Services = () => {
               </motion.div>
             ))}
           </div>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground max-w-3xl mx-auto">
+              Whether someone searches for best truck rentals in Pune, truck hire Pune, lorry booking service, transport service near me, or full truck load transport, this page is designed to answer that requirement with relevant vehicle and route information.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -325,7 +387,7 @@ const Services = () => {
               Our Service <span className="text-secondary">Coverage</span>
             </h2>
             <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
-              Reliable FTL transportation across western India with focus on Maharashtra, Goa, and selected routes in Gujarat.
+              Reliable truck rental and FTL transportation across western India with focus on Maharashtra, Goa, and selected routes in Gujarat.
             </p>
           </motion.div>
 
@@ -396,11 +458,25 @@ const Services = () => {
               ))}
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-4">
-              Full Truck Load <span className="text-secondary">Transportation</span>
+              Truck Rental for <span className="text-secondary">Business Transport</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              We specialize in FTL transportation providing dedicated vehicles for your cargo. With our wide range of vehicles from Pick Up to 40ft Trailers, we handle every type of shipment with care and efficiency.
+              We specialize in truck rental and FTL transportation with dedicated vehicles for cargo movement. From pickup trucks and mini trucks to larger trailers, we help businesses choose the right vehicle for local, intercity, and industrial transport requirements.
             </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-lg bg-secondary px-6 py-3 text-sm font-heading font-bold text-secondary-foreground hover:opacity-90 transition-opacity"
+              >
+                Book a Truck <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link
+                to="/pricing"
+                className="inline-flex items-center gap-2 rounded-lg border border-border px-6 py-3 text-sm font-heading font-bold text-primary hover:bg-card transition-colors"
+              >
+                View Pricing
+              </Link>
+            </div>
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <img src={fleetImg} alt="Fleet" className="rounded-2xl shadow-xl w-full" loading="lazy" width={1200} height={600} />

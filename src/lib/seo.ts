@@ -26,9 +26,57 @@ type SeoOptions = {
   canonicalPath?: string;
   ogType?: "website" | "article";
   structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  keywords?: string;
 };
 
-const SEO_KEYWORD_PHRASE = "Pune to Maharashtra line 1109 vehicles provider";
+const DEFAULT_SEO_KEYWORDS = [
+  "shreeyansh logistics",
+  "shreyansh logistics",
+  "shriyansh logistics",
+  "shreeyansh logitech solutions",
+  "shreeyansh transport",
+  "shreeyansh truck booking",
+  "shreeyansh truck rental",
+  "shreeyansh logistics pune",
+  "truck rental pune",
+  "truck on rent pune",
+  "truck booking online",
+  "online truck booking pune",
+  "truck booking pune",
+  "truck hire pune",
+  "lorry hire pune",
+  "lorry booking service",
+  "mini truck on rent near me",
+  "mini truck booking near me",
+  "pickup truck rental pune",
+  "tempo on rent pune",
+  "tempo traveller for goods pune",
+  "transport services near me",
+  "goods transport service",
+  "goods transport pune",
+  "load truck booking",
+  "truck transport service pune",
+  "tempo transport service",
+  "freight transport service",
+  "full truck load service pune",
+  "ftl transport service",
+  "cheapest truck booking service",
+  "same day truck booking",
+  "same day truck rental",
+  "intercity truck transport",
+  "truck rental for shifting goods",
+  "cargo transportation services",
+  "door to door logistics",
+  "logistics company in Pune",
+  "transport company in Pune",
+  "reliable transport service",
+  "affordable truck booking",
+  "professional freight services",
+  "truck booking for shifting goods",
+  "transport services for business",
+  "bulk goods transport India",
+  "industrial goods transport service",
+].join(", ");
 
 const upsertStructuredData = (data?: SeoOptions["structuredData"]) => {
   const selector = 'script[data-seo="structured-data"]';
@@ -60,18 +108,13 @@ export const setPageSeo = (title: string, description: string, options: SeoOptio
   const ogImage = `${siteUrl}/og-image.png`;
   const robots = options.robots ?? "index, follow";
   const ogType = options.ogType ?? "website";
-  const seoDescription = description.toLowerCase().includes(SEO_KEYWORD_PHRASE.toLowerCase())
-    ? description
-    : `${description} ${SEO_KEYWORD_PHRASE}.`;
+  const seoDescription = description;
+  const keywords = options.keywords ?? DEFAULT_SEO_KEYWORDS;
 
   document.title = title;
 
   upsertMetaTag('meta[name="description"]', { name: "description" }, seoDescription);
-  upsertMetaTag(
-    'meta[name="keywords"]',
-    { name: "keywords" },
-    `${SEO_KEYWORD_PHRASE}, truck rental pune, maharashtra transport, full truck load logistics`,
-  );
+  upsertMetaTag('meta[name="keywords"]', { name: "keywords" }, keywords);
   upsertMetaTag('meta[name="robots"]', { name: "robots" }, robots);
   upsertMetaTag('meta[property="og:type"]', { property: "og:type" }, ogType);
   upsertMetaTag('meta[property="og:url"]', { property: "og:url" }, canonicalUrl);
