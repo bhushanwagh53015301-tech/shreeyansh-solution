@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shreeyansh-solution.vercel.app/sitemap.xml
+Sitemap: https://shreeyanshlogitechsolutions.com/sitemap.xml

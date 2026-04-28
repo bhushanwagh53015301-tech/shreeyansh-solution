@@ -125,10 +125,32 @@ const Index = () => {
 
   useEffect(() => {
     setPageSeo(
-      "Truck Rental, Truck Booking & Logistics in Pune | Shreeyansh Logistics",
-      "Need a truck on rent in Pune? Shreeyansh Logitech Solutions offers truck rental, mini truck booking, tempo on rent, pickup truck hire, and intercity goods transport across Maharashtra, Goa, and Gujarat.",
+      "Transport Services in Chakan, Pune | Shreeyansh Logitech Solutions",
+      "Shreeyansh Logitech Solutions is a transport and logistics company in Chakan, Khed, Maharashtra offering full truck load services, truck delivery, and by-road transportation across Maharashtra, Goa, and selected Gujarat routes.",
       {
         canonicalPath: "/",
+        keywords: [
+          "shreeyansh logitech solutions",
+          "shreeyansh logistics",
+          "transport services in chakan",
+          "logistics company in chakan",
+          "truck rental pune",
+          "pune to maharashtra transporter",
+          "maharashtra line transporter",
+          "goa line transportation specialist",
+          "1109 vehicles provider",
+          "full truck transport maharashtra",
+          "truck transport goa",
+          "truck transport gujarat",
+          "truck delivery service",
+          "logistic management services",
+          "by road transport services",
+          "transport services in maharashtra",
+          "transport services in goa",
+          "transport services in gujarat",
+          "full truck load service pune",
+          "shreeyansh logitech solutions chakan",
+        ].join(", "),
         structuredData: [
           {
             "@context": "https://schema.org",
@@ -137,14 +159,45 @@ const Index = () => {
             alternateName: ["Shreeyansh Logistics", "Shreyansh Logistics", "Shriyansh Logistics", "Shreeyansh Transport"],
             url: window.location.origin,
             description:
-              "Truck rental and truck booking company in Pune offering mini truck, pickup, tempo, and full truck load transport for local and intercity goods movement.",
-            areaServed: ["Pune", "Mumbai", "Maharashtra", "Goa", "Gujarat", "India"],
+              "Transport and logistics company in Chakan, Khed, Maharashtra providing full truck load vehicles, truck delivery, by-road transportation, and logistics management across Maharashtra, Goa, and selected Gujarat routes.",
+            areaServed: [
+              "Chakan",
+              "Khed",
+              "Pune",
+              "Maharashtra",
+              "Goa",
+              "Gujarat",
+              "India",
+            ],
             telephone: ["+91-9273234588", "+91-7744897661"],
             email: "shreeyanshlogitechsolutions@gmail.com",
+            founder: {
+              "@type": "Person",
+              name: "Ravi Padwal",
+            },
+            owner: {
+              "@type": "Person",
+              name: "Ravi Padwal",
+            },
+            knowsAbout: [
+              "Transport Services",
+              "Truck Delivery",
+              "Logistic Management",
+              "Full Truck Load Transportation",
+              "Maharashtra Transport Routes",
+              "Goa Transport Routes",
+              "Selected Gujarat Transport Routes",
+            ],
+            serviceType: [
+              "By Road Transport",
+              "Truck Delivery",
+              "Logistic Management",
+              "Full Truck Load Service",
+            ],
             address: {
               "@type": "PostalAddress",
               streetAddress: "Swarajya Residency, Shop No. 1, Chakan MIDC Phase-V, Biradawadi",
-              addressLocality: "Taluka-Khed",
+              addressLocality: "Chakan, Khed",
               addressRegion: "Maharashtra",
               postalCode: "410501",
               addressCountry: "IN",
@@ -258,25 +311,6 @@ const Index = () => {
               <span className="text-secondary"> Maharashtra, Mumbai, Goa, Gujarat, and selected intercity routes</span>.
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-card py-10 md:py-14">
-        <div className="container max-w-5xl">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary text-center mb-5">
-              Search the Way Customers <span className="text-secondary">Actually Search</span>
-            </h2>
-            <p className="text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto">
-              People usually do not search only by company name. They search phrases like truck on rent in Pune, mini truck booking near me, pickup truck rental, tempo on rent, lorry booking service, or goods transport service near me.
-            </p>
-            <p className="text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto mt-4">
-              Shreeyansh Logistics, also searched as Shreyansh Logistics, Shriyansh Logistics, Shreeyansh Logitech Solutions, and Shreeyansh Transport, is positioned for those buyer-intent searches with rental options for mini trucks, pickups, tempos, and full truck load transport.
-            </p>
-            <p className="text-muted-foreground text-center leading-relaxed max-w-4xl mx-auto mt-4">
-              If someone wants to rent a truck for factory dispatch, trading material, industrial goods, or regular business transport, this website now speaks the same language they are likely to type into Google.
-            </p>
-          </motion.div>
         </div>
       </section>
 
