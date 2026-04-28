@@ -307,6 +307,8 @@ const Contact = () => {
                   <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Full Name</label>
                     <input
+                      id="fullName"
+                      name="fullName"
                       type="text"
                       required
                       value={fullName}
@@ -322,6 +324,8 @@ const Contact = () => {
                   <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Phone Number</label>
                     <input
+                      id="phone"
+                      name="phone"
                       type="tel"
                       required
                       value={phone}
@@ -341,6 +345,8 @@ const Contact = () => {
                   <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Vehicle / Product Needed</label>
                     <select
+                      id="vehicleType"
+                      name="vehicleType"
                       required
                       value={vehicleType}
                       onChange={(e) => {
@@ -370,6 +376,8 @@ const Contact = () => {
                   <div className="min-w-0">
                     <label className="block text-sm font-semibold text-foreground mb-1.5">Message</label>
                     <textarea
+                      id="cargoRouteDetails"
+                      name="cargoRouteDetails"
                       rows={4}
                       value={cargoRouteDetails}
                       onChange={(e) => {
