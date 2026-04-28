@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shreeyanshlogitechsolutions.com/sitemap.xml
+Sitemap: https://www.shreeyanshlogitechsolutions.com/sitemap.xml
