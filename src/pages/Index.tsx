@@ -129,28 +129,6 @@ const Index = () => {
       "Shreeyansh Logitech Solutions is a transport and logistics company in Chakan, Khed, Maharashtra offering full truck load services, truck delivery, and by-road transportation across Maharashtra, Goa, and selected Gujarat routes.",
       {
         canonicalPath: "/",
-        keywords: [
-          "shreeyansh logitech solutions",
-          "shreeyansh logistics",
-          "transport services in chakan",
-          "logistics company in chakan",
-          "truck rental pune",
-          "pune to maharashtra transporter",
-          "maharashtra line transporter",
-          "goa line transportation specialist",
-          "1109 vehicles provider",
-          "full truck transport maharashtra",
-          "truck transport goa",
-          "truck transport gujarat",
-          "truck delivery service",
-          "logistic management services",
-          "by road transport services",
-          "transport services in maharashtra",
-          "transport services in goa",
-          "transport services in gujarat",
-          "full truck load service pune",
-          "shreeyansh logitech solutions chakan",
-        ].join(", "),
         structuredData: [
           {
             "@context": "https://schema.org",

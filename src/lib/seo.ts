@@ -29,7 +29,7 @@ type SeoOptions = {
   keywords?: string;
 };
 
-const DEFAULT_SEO_KEYWORDS = [
+export const SEO_KEYWORDS = [
   "shreeyansh logistics",
   "shreyansh logistics",
   "shriyansh logistics",
@@ -90,7 +90,9 @@ const DEFAULT_SEO_KEYWORDS = [
   "truck delivery service",
   "logistic management services",
   "by road transport services",
-].join(", ");
+];
+
+const DEFAULT_SEO_KEYWORDS = SEO_KEYWORDS.join(", ");
 
 const upsertStructuredData = (data?: SeoOptions["structuredData"]) => {
   const selector = 'script[data-seo="structured-data"]';

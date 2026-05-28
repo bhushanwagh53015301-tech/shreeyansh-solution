@@ -31,25 +31,6 @@ const services = [
   },
 ];
 
-const searchIntentBlocks = [
-  {
-    title: "Best Truck Rentals in Pune",
-    desc: "If someone searches best truck rentals in Pune, they usually want a reliable company with the right vehicle options, quick response, and practical pricing. This services page is now written to match that local buying intent.",
-  },
-  {
-    title: "Truck on Rent in Pune",
-    desc: "When customers search truck on rent in Pune, truck rental Pune, or truck booking Pune, they are usually looking for quick availability, clear pricing, and dependable coordination. This page now speaks to that exact need.",
-  },
-  {
-    title: "Mini Truck on Rent Near Me",
-    desc: "For small commercial loads and urgent dispatches, people often search mini truck on rent near me, pickup truck rental, or small truck booking. We support those use cases with practical vehicle matching.",
-  },
-  {
-    title: "Tempo on Rent for Goods Transport",
-    desc: "Many buyers search tempo on rent, lorry booking service, or goods transport near me when they need flexible business transport. We help with local and intercity goods movement using the right vehicle type.",
-  },
-];
-
 const destinationZones = [
   {
     title: "Pune Region",
@@ -89,8 +70,6 @@ const Services = () => {
       "Looking for the best truck rentals in Pune? Shreeyansh Logitech Solutions provides truck rental, mini truck on rent, pickup truck rental, tempo on rent, and full truck load transport across Pune and nearby routes.",
       {
         canonicalPath: "/services",
-        keywords:
-          "best truck rentals in pune, truck rental pune, truck on rent pune, mini truck on rent near me, pickup truck rental pune, tempo on rent pune, truck booking pune, full truck load service pune, intercity truck transport, shreeyansh logistics services",
         structuredData: {
           "@context": "https://schema.org",
           "@type": "Service",
@@ -119,37 +98,6 @@ const Services = () => {
               Looking for the best truck rentals in Pune? Get truck on rent, mini truck booking, pickup truck rental, tempo on rent, and full truck load support for Pune and surrounding business routes.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      <section className="py-10 md:py-16 bg-card">
-        <div className="container">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center max-w-4xl mx-auto mb-10">
-            <p className="font-heading text-sm font-black tracking-widest text-secondary mb-2">HIGH-INTENT SEARCH TERMS</p>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-primary mb-4">
-              Pune Truck Rental Services Built Around <span className="text-secondary">How Customers Search</span>
-            </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              People searching for transport usually type best truck rentals in Pune, truck rental Pune, mini truck on rent near me, tempo on rent, pickup truck rental, or truck booking Pune. We have aligned this services page around those real rental needs while keeping the content useful and natural.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {searchIntentBlocks.map((block, i) => (
-              <motion.div
-                key={block.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                custom={i}
-                className="rounded-2xl border border-border bg-background p-6 shadow-sm"
-              >
-                <h3 className="font-heading text-xl font-black text-primary mb-3">{block.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{block.desc}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
